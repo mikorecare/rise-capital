@@ -207,7 +207,7 @@
     border-bottom: 1px solid var(--theme-border);
     font-weight: 600;
     font-size: 14px;
-    color: var(--theme-text-primary);
+    color: var(--theme-sidebar-text);
     background: var(--theme-sidebar-bg);
     display: flex;
     align-items: center;
