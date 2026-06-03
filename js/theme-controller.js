@@ -180,24 +180,33 @@
     panel.style.cssText =
       "position: absolute; bottom: 55px; right: 0; background: var(--theme-card-bg); border-radius: 12px; padding: 8px; min-width: 160px; box-shadow: 0 8px 24px rgba(0,0,0,0.2); border: 1px solid var(--theme-border); display: none; flex-direction: column; gap: 4px; z-index: 99999;";
 
+    // Store theme options reference
+    const themeOptions = [];
+
     // Add theme options
     Object.entries(themes).forEach(([key, t]) => {
       const opt = document.createElement("div");
       opt.style.cssText =
         "padding: 8px 12px; border-radius: 8px; cursor: pointer; color: var(--theme-text-primary); display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 13px;";
-      opt.innerHTML = `<span>${t.name}</span> ${currentTheme === key ? "<span>✓</span>" : ""}`;
+      opt.innerHTML = `<span>${t.name}</span> ${currentTheme === key ? "<span class='checkmark'>✓</span>" : ""}`;
+      opt.setAttribute("data-theme-key", key);
+      
       opt.onclick = (e) => {
         e.stopPropagation();
         window.applyTheme(key);
         panel.style.display = "none";
-        // Update checkmarks
-        panel.querySelectorAll("div").forEach((optDiv) => {
-          const check = optDiv.querySelector("span:last-child");
-          if (check && check.innerText === "✓") check.innerText = "";
+        
+        // Update checkmarks using the class selector
+        themeOptions.forEach(optDiv => {
+          const checkSpan = optDiv.querySelector(".checkmark");
+          if (checkSpan) checkSpan.remove();
         });
-        const checkSpan = opt.querySelector("span:last-child");
-        if (checkSpan) checkSpan.innerText = "✓";
-        else opt.insertAdjacentHTML("beforeend", "<span>✓</span>");
+        
+        // Add checkmark to selected option
+        const newCheck = document.createElement("span");
+        newCheck.className = "checkmark";
+        newCheck.textContent = "✓";
+        opt.appendChild(newCheck);
 
         // Send to iframes
         document.querySelectorAll("iframe").forEach((iframe) => {
@@ -209,7 +218,9 @@
           } catch (e) {}
         });
       };
+      
       panel.appendChild(opt);
+      themeOptions.push(opt);
     });
 
     // Wrapper
