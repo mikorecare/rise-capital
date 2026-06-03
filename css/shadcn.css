@@ -1,0 +1,817 @@
+/* shadcn.css - Complete shadcn dashboard styles */
+
+.shadcn-layout {
+    display: flex;
+    gap: 1.5rem;
+    min-height: 100vh;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+.shadcn-sidebar {
+    width: 280px;
+    background: var(--theme-card-bg);
+    border-radius: 24px;
+    padding: 1.5rem;
+    border: 1px solid var(--theme-border);
+    position: sticky;
+    top: 1.5rem;
+    height: calc(100vh - 3rem);
+}
+
+.shadcn-sidebar-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--theme-border);
+}
+
+.shadcn-sidebar-header h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: var(--theme-text-primary);
+}
+
+.shadcn-sidebar-header small {
+    color: var(--theme-text-secondary);
+    font-size: 0.75rem;
+}
+
+.shadcn-sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.shadcn-nav-item {
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--theme-text-primary);
+    transition: all 0.2s;
+    font-size: 0.9rem;
+    position: relative;
+}
+
+.shadcn-nav-item:hover {
+    background: var(--theme-border);
+}
+
+.shadcn-nav-item.active {
+    background: var(--theme-accent);
+    color: white;
+}
+
+.shadcn-nav-item .mail-badge {
+    margin-left: auto;
+    background: var(--theme-accent);
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 20px;
+}
+
+.shadcn-nav-item.active .mail-badge {
+    background: white;
+    color: var(--theme-accent);
+}
+
+.shadcn-main {
+    flex: 1;
+}
+
+/* View Containers */
+.view-container {
+    display: none;
+}
+
+.view-container.active-view {
+    display: block;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+    margin-bottom: 2rem;
+}
+
+.dashboard-header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--theme-text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-header p {
+    color: var(--theme-text-secondary);
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: var(--theme-card-bg);
+    border-radius: 20px;
+    padding: 1.25rem;
+    border: 1px solid var(--theme-border);
+}
+
+.stat-card .label {
+    font-size: 0.85rem;
+    color: var(--theme-text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.stat-card .value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--theme-text-primary);
+}
+
+.stat-card .change {
+    font-size: 0.75rem;
+    color: #10b981;
+    margin-top: 0.5rem;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 1.5rem 0 1rem 0;
+    color: var(--theme-text-primary);
+}
+
+/* Funds Grid */
+.funds-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.fund-card {
+    background: var(--theme-card-bg);
+    border-radius: 20px;
+    padding: 1.25rem;
+    cursor: pointer;
+    border: 1px solid var(--theme-border);
+    transition: all 0.2s;
+}
+
+.fund-card:hover {
+    border-color: var(--theme-accent);
+    transform: translateY(-2px);
+}
+
+.fund-card h4 {
+    color: var(--theme-text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.fund-card p {
+    color: var(--theme-text-secondary);
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.fund-metrics {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--theme-border);
+    color: var(--theme-text-secondary);
+}
+
+/* Opportunity Card */
+.opportunity-card {
+    background: var(--theme-card-bg);
+    border-radius: 16px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    border: 1px solid var(--theme-border);
+    transition: all 0.2s;
+}
+
+.opportunity-card:hover {
+    border-color: var(--theme-accent);
+}
+
+/* Timeline */
+.timeline-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--theme-card-bg);
+    border-left: 3px solid var(--theme-accent);
+    margin-bottom: 1rem;
+    border-radius: 12px;
+}
+
+.timeline-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-top: 0.25rem;
+}
+
+.timeline-dot.completed { background: var(--theme-status-completed); }
+.timeline-dot.current { background: var(--theme-status-current); }
+.timeline-dot.upcoming { background: var(--theme-status-upcoming); }
+
+/* Status Badges */
+.status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+.status-completed { background: var(--theme-status-completed); color: white; }
+.status-current { background: var(--theme-status-current); color: white; }
+.status-upcoming { background: var(--theme-status-upcoming); color: white; }
+
+/* Back Button */
+.back-btn {
+    background: transparent;
+    border: 1px solid var(--theme-border);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    color: var(--theme-text-primary);
+    transition: all 0.2s;
+}
+
+.back-btn:hover {
+    background: var(--theme-accent);
+    color: white;
+    border-color: var(--theme-accent);
+}
+
+/* Wallet */
+.wallet-balance-card {
+    background: linear-gradient(135deg, var(--theme-accent), var(--theme-accent-hover));
+    border-radius: 24px;
+    padding: 1.5rem;
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
+.wallet-balance-card .label {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.wallet-balance-card .value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+}
+
+.wallet-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.wallet-stat-card {
+    background: var(--theme-card-bg);
+    border-radius: 16px;
+    padding: 1rem;
+    border: 1px solid var(--theme-border);
+}
+
+.wallet-stat-card .label {
+    font-size: 0.75rem;
+    color: var(--theme-text-secondary);
+}
+
+.wallet-stat-card .value {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--theme-text-primary);
+    margin-top: 0.5rem;
+}
+
+/* Transaction Table */
+.transaction-table {
+    width: 100%;
+    background: var(--theme-card-bg);
+    border-radius: 16px;
+    border: 1px solid var(--theme-border);
+    overflow: hidden;
+}
+
+.transaction-table th,
+.transaction-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--theme-border);
+    color: var(--theme-text-primary);
+}
+
+.transaction-table th {
+    background: var(--theme-sidebar-bg);
+    color: var(--theme-text-secondary);
+    font-weight: 500;
+}
+
+.transaction-type {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+}
+
+.transaction-type.deposit { background: #10b98120; color: #10b981; }
+.transaction-type.investment { background: #f59e0b20; color: #f59e0b; }
+.transaction-type.withdrawal { background: #ef444420; color: #ef4444; }
+.transaction-type.dividend { background: #3b82f620; color: #3b82f6; }
+
+.amount-positive { color: #10b981; }
+.amount-negative { color: #ef4444; }
+
+/* Two Column Layout */
+.two-column-layout {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.left-column {
+    flex: 2;
+}
+
+.right-column {
+    flex: 1;
+}
+
+/* Profile Card */
+.profile-card {
+    background: var(--theme-card-bg);
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid var(--theme-border);
+    margin-bottom: 24px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--theme-border);
+}
+
+.profile-avatar {
+    width: 56px;
+    height: 56px;
+    background: var(--theme-accent);
+    border-radius: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.profile-info h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--theme-text-primary);
+    margin-bottom: 4px;
+}
+
+.profile-info p {
+    font-size: 0.8rem;
+    color: var(--theme-text-secondary);
+}
+
+.profile-detail {
+    margin-bottom: 16px;
+}
+
+.profile-detail .label {
+    font-size: 0.7rem;
+    color: var(--theme-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.profile-detail .value {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--theme-text-primary);
+}
+
+.risk-badge {
+    background: var(--theme-accent);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    display: inline-block;
+}
+
+/* Quick Actions */
+.quick-actions {
+    background: var(--theme-card-bg);
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid var(--theme-border);
+}
+
+.quick-actions h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--theme-text-primary);
+}
+
+.action-btn {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 8px;
+    background: var(--theme-bg-gradient-start);
+    border: 1px solid var(--theme-border);
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.2s;
+    color: var(--theme-text-primary);
+    font-size: 0.85rem;
+}
+
+.action-btn:hover {
+    background: var(--theme-border);
+    border-color: var(--theme-accent);
+}
+
+.action-btn i {
+    width: 18px;
+    color: var(--theme-accent);
+}
+
+/* Tables Section */
+.tables-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.table-container {
+    background: var(--theme-card-bg);
+    border-radius: 20px;
+    border: 1px solid var(--theme-border);
+    overflow: hidden;
+}
+
+.table-header {
+    padding: 16px 20px;
+    background: var(--theme-bg-gradient-start);
+    border-bottom: 1px solid var(--theme-border);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--theme-text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th {
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--theme-text-secondary);
+    border-bottom: 1px solid var(--theme-border);
+    background: var(--theme-bg-gradient-start);
+}
+
+.data-table td {
+    padding: 12px 16px;
+    font-size: 0.8rem;
+    color: var(--theme-text-primary);
+    border-bottom: 1px solid var(--theme-border);
+    cursor: pointer;
+}
+
+.data-table tr:last-child td {
+    border-bottom: none;
+}
+
+.data-table tr:hover td {
+    background: var(--theme-border);
+}
+
+/* Mail/Inbox Styles - Properly Aligned */
+.mail-container {
+    background: var(--theme-card-bg);
+    border-radius: 20px;
+    border: 1px solid var(--theme-border);
+    overflow: hidden;
+}
+
+.mail-toolbar {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--theme-border);
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    background: var(--theme-bg-gradient-start);
+}
+
+.mail-toolbar-btn {
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--theme-border);
+    background: transparent;
+    cursor: pointer;
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--theme-text-primary);
+    transition: all 0.2s;
+}
+
+.mail-toolbar-btn:hover {
+    background: var(--theme-border);
+}
+
+.compose-btn {
+    background: var(--theme-accent);
+    color: white;
+    border: none;
+}
+
+.compose-btn:hover {
+    background: var(--theme-accent-hover);
+}
+
+/* Mail List - Grid Layout Properly Aligned */
+.mail-list {
+    min-height: 400px;
+}
+
+.mail-list-header {
+    display: grid;
+    grid-template-columns: 30px 30px 200px 1fr 80px;
+    padding: 10px 16px;
+    background: var(--theme-bg-gradient-start);
+    border-bottom: 1px solid var(--theme-border);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--theme-text-secondary);
+}
+
+.mail-item {
+    display: grid;
+    grid-template-columns: 30px 30px 200px 1fr 80px;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--theme-border);
+    cursor: pointer;
+    transition: all 0.1s;
+}
+
+.mail-item:hover {
+    background: var(--theme-border);
+}
+
+.mail-item.unread {
+    background: rgba(59, 130, 246, 0.05);
+}
+
+.mail-checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mail-checkbox input {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.mail-star {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.star-icon {
+    cursor: pointer;
+    color: #cbd5e1;
+    transition: all 0.2s;
+}
+
+.star-icon.starred {
+    color: #f59e0b;
+    fill: #f59e0b;
+}
+
+.mail-from {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--theme-text-primary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mail-item.unread .mail-from {
+    font-weight: 700;
+}
+
+.mail-subject {
+    font-size: 13px;
+    color: var(--theme-text-primary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mail-item.unread .mail-subject {
+    font-weight: 600;
+}
+
+.mail-date {
+    font-size: 11px;
+    color: var(--theme-text-secondary);
+    text-align: right;
+}
+
+/* Mail Detail View */
+.mail-detail {
+    min-height: 500px;
+}
+
+.mail-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--theme-border);
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.back-to-inbox-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--theme-border);
+    background: transparent;
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--theme-text-primary);
+    transition: all 0.2s;
+}
+
+.back-to-inbox-btn:hover {
+    background: var(--theme-border);
+}
+
+.mail-detail-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.mail-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--theme-border);
+    background: transparent;
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--theme-text-primary);
+    transition: all 0.2s;
+}
+
+.mail-action-btn:hover {
+    background: var(--theme-border);
+}
+
+.mail-detail-subject {
+    padding: 20px 24px 12px 24px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--theme-text-primary);
+    border-bottom: 1px solid var(--theme-border);
+}
+
+.mail-detail-meta {
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    border-bottom: 1px solid var(--theme-border);
+    background: var(--theme-bg-gradient-start);
+}
+
+.mail-detail-from {
+    font-size: 13px;
+    color: var(--theme-text-primary);
+}
+
+.mail-detail-from strong {
+    font-weight: 600;
+}
+
+.mail-detail-from span {
+    color: var(--theme-text-secondary);
+    font-size: 12px;
+}
+
+.mail-detail-date {
+    font-size: 11px;
+    color: var(--theme-text-secondary);
+}
+
+.mail-detail-message {
+    padding: 24px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--theme-text-primary);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .two-column-layout { 
+        flex-direction: column; 
+    }
+    .tables-section { 
+        grid-template-columns: 1fr; 
+    }
+}
+
+@media (max-width: 768px) {
+    .shadcn-layout { 
+        flex-direction: column; 
+        padding: 1rem; 
+    }
+    .shadcn-sidebar { 
+        width: 100%; 
+        position: static; 
+        height: auto; 
+    }
+    .stats-grid, 
+    .wallet-stats-grid { 
+        grid-template-columns: 1fr 1fr; 
+    }
+    .funds-grid { 
+        grid-template-columns: 1fr; 
+    }
+    
+    /* Mail responsive */
+    .mail-list-header {
+        display: none;
+    }
+    .mail-item {
+        grid-template-columns: 30px 30px 1fr 60px;
+        gap: 8px;
+    }
+    .mail-from, .mail-subject {
+        font-size: 11px;
+    }
+    .mail-detail-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .mail-detail-meta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

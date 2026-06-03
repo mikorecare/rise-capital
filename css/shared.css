@@ -1,0 +1,94 @@
+/* shared.css - Common components across all dashboards */
+
+.opportunity-card,
+.timeline-item,
+.back-btn {
+    transition: all 0.2s;
+}
+
+/* Status badges - ALL from theme variables */
+.status-completed {
+    background: var(--theme-status-completed) !important;
+    color: white;
+}
+
+.status-current {
+    background: var(--theme-status-current) !important;
+    color: white;
+}
+
+.status-upcoming {
+    background: var(--theme-status-upcoming) !important;
+    color: white;
+}
+
+.back-btn {
+    background: transparent;
+    border: 1px solid var(--theme-border);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    color: var(--theme-text-primary);
+}
+
+.back-btn:hover {
+    background: var(--theme-accent);
+    color: white;
+    border-color: var(--theme-accent);
+}
+
+/* Shared stats grid */
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--theme-text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--theme-text-primary);
+}
+
+        .logo-img {
+    height: 72px;
+    width: auto;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .logo-img {
+        height: 28px;
+    }
+}
+
+.menu-icon, .nav-icon {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+}
+
+/* For AWS which has different hover colors */
+.aws-menu-item .menu-icon {
+    stroke: #8796a8;
+}
+
+.aws-menu-item:hover .menu-icon {
+    stroke: #ffffff;
+}
+
+.aws-menu-item.active .menu-icon {
+    stroke: #ff9900;
+}
+
+/* For shadcn */
+.shadcn-nav-item .nav-icon {
+    stroke: var(--theme-sidebar-text);
+}
+
+.shadcn-nav-item.active .nav-icon {
+    stroke: white;
+}

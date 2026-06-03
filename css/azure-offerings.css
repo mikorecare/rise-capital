@@ -1,0 +1,153 @@
+/* azure-offerings.css - Azure Fluent Design Offerings Table */
+
+.azure-offerings-container {
+    width: 100%;
+    overflow-x: auto;
+    background: var(--theme-card-bg, #ffffff);
+    border: 1px solid var(--theme-border, #e0e4e9);
+    border-radius: 8px;
+}
+
+.azure-offerings-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+}
+
+.azure-offerings-table th {
+    text-align: left;
+    padding: 14px 12px;
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--theme-text-secondary, #5c5e63);
+    border-bottom: 1px solid var(--theme-border, #e0e4e9);
+    background: var(--theme-bg-gradient-start, #f8f9fa);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.azure-offerings-table td {
+    padding: 14px 12px;
+    border-bottom: 1px solid var(--theme-border, #e0e4e9);
+    color: var(--theme-text-primary, #1f1f1f);
+    cursor: pointer;
+    transition: background 0.1s;
+}
+
+.azure-offerings-table tr:hover td {
+    background: var(--theme-border, #f0f4f9);
+}
+
+.azure-offerings-filter-bar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.azure-offerings-filter-select {
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid var(--theme-border, #e0e4e9);
+    background: var(--theme-card-bg, #ffffff);
+    color: var(--theme-text-primary, #1f1f1f);
+    font-size: 13px;
+    font-family: "Segoe UI", sans-serif;
+    cursor: pointer;
+}
+
+.azure-offerings-search {
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid var(--theme-border, #e0e4e9);
+    background: var(--theme-card-bg, #ffffff);
+    color: var(--theme-text-primary, #1f1f1f);
+    font-size: 13px;
+    min-width: 220px;
+    font-family: "Segoe UI", sans-serif;
+}
+
+.azure-offerings-search::placeholder {
+    color: var(--theme-text-secondary, #5c5e63);
+}
+
+.azure-offerings-stats {
+    font-size: 12px;
+    color: var(--theme-text-secondary, #5c5e63);
+    margin-bottom: 16px;
+    padding: 8px 0;
+}
+
+/* Azure Status Badges */
+.azure-status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.azure-status-open {
+    background: #107c10;
+    color: white;
+}
+
+.azure-status-limited {
+    background: #ff8c00;
+    color: white;
+}
+
+.azure-status-closed {
+    background: #5c5e63;
+    color: white;
+}
+
+.azure-status-coming-soon {
+    background: #0078d4;
+    color: white;
+}
+
+.azure-status-by-invitation {
+    background: #8b5cf6;
+    color: white;
+}
+
+/* Azure Category Badges */
+.azure-category-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+.azure-category-development { background: #0078d420; color: #0078d4; }
+.azure-category-drilling { background: #ff8c0020; color: #ff8c00; }
+.azure-category-production { background: #107c1020; color: #107c10; }
+.azure-category-fund { background: #8b5cf620; color: #8b5cf6; }
+.azure-category-equipment { background: #6b728020; color: #6b7280; }
+.azure-category-entry-level { background: #00b4d820; color: #00b4d8; }
+.azure-category-innovation { background: #06b6d420; color: #06b6d4; }
+.azure-category-regional { background: #84cc1620; color: #84cc16; }
+.azure-category-rework { background: #f9731620; color: #f97316; }
+.azure-category-real-estate { background: #ec489920; color: #ec4899; }
+.azure-category-branded { background: #f43f5e20; color: #f43f5e; }
+.azure-category-exclusive { background: #d946ef20; color: #d946ef; }
+
+@media (max-width: 768px) {
+    .azure-offerings-table th,
+    .azure-offerings-table td {
+        padding: 10px 8px;
+        font-size: 11px;
+    }
+    .azure-offerings-filter-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .azure-offerings-search {
+        width: 100%;
+    }
+}

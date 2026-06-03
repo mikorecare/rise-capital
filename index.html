@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rise Capital - Investor Portal</title>
+    <link rel="stylesheet" href="./bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/theme-variable.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <!-- LEFT SIDEBAR TOGGLE -->
+    <div class="left-sidebar" id="leftSidebar">
+      <div class="sidebar-logo">
+        <img src="./logos/rcg-logo.png" alt="Rise Capital" />
+      </div>
+      <div class="sidebar-nav">
+        <div class="nav-section">
+          <div class="nav-section-title">MAIN</div>
+          <div class="nav-item active" data-view="dashboard">
+            <i data-lucide="layout-dashboard"></i>
+            <span>Dashboard</span>
+          </div>
+          <div class="nav-item" data-view="timeline">
+            <i data-lucide="clock"></i>
+            <span>Timeline</span>
+          </div>
+        </div>
+        <div class="nav-section">
+          <div class="nav-section-title">DISPLAY</div>
+          <div class="nav-item" id="collapseSidebarBtn">
+            <i data-lucide="chevron-left"></i>
+            <span>Collapse</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-container">
+      <div class="dashboard-toggler">
+        <div class="dashboard-selector">
+          <button class="dashboard-btn active" data-dashboard="shadcn">
+            <i data-lucide="sparkles" class="btn-icon"></i>
+            Modern
+          </button>
+          <button class="dashboard-btn" data-dashboard="azure">
+            <i data-lucide="minimize-2" class="btn-icon"></i>
+            Minimalist
+          </button>
+          <button class="dashboard-btn" data-dashboard="aws">
+            <i data-lucide="gem" class="btn-icon"></i>
+            Classy
+          </button>
+          <button class="dashboard-btn" data-dashboard="bootstrap">
+            <i data-lucide="layout-grid" class="btn-icon"></i>
+            Simple
+          </button>
+        </div>
+      </div>
+
+      <div class="iframe-container">
+        <div class="iframe-wrapper">
+          <div class="window-header">
+            <div class="window-dots">
+              <div class="window-dot red"></div>
+              <div class="window-dot yellow"></div>
+              <div class="window-dot green"></div>
+            </div>
+            <div class="window-title" id="window-title">Modern Dashboard</div>
+          </div>
+          <iframe id="dashboard-iframe" src="dashboard-shadcn.html"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- FLOATING COLOR THEME TOGGLER -->
+    <div id="color-theme-toggler">
+      <div id="color-theme-btn">🎨</div>
+      <div id="color-theme-menu">
+        <div class="color-option" data-theme="default">🔵 Default</div>
+        <div class="color-option" data-theme="aws">🟠 AWS Orange</div>
+        <div class="color-option" data-theme="azure">🔷 Azure Blue</div>
+        <div class="color-option" data-theme="forest">🌲 Forest</div>
+        <div class="color-option" data-theme="dark">🌙 Dark</div>
+        <div class="color-option" data-theme="ocean">🌊 Ocean</div>
+      </div>
+    </div>
+
+    <script src="./js/theme-controller.js"></script>
+    <script>
+      const iframe = document.getElementById("dashboard-iframe");
+      const windowTitle = document.getElementById("window-title");
+      const leftSidebar = document.getElementById("leftSidebar");
+
+      // Dashboard names mapping
+      const dashboardNames = {
+        shadcn: "Modern Dashboard",
+        azure: "Minimalist Dashboard",
+        aws: "Classy Dashboard",
+        bootstrap: "Simple Dashboard",
+      };
+
+      // Timeline file mapping per dashboard
+      const timelineFiles = {
+        shadcn: "timeline-shadcn.html",
+        azure: "timeline-azure.html",
+        aws: "timeline-aws.html",
+        bootstrap: "timeline-bootstrap.html",
+      };
+
+      let currentDashboard = "shadcn";
+      let currentView = "dashboard"; // 'dashboard' or 'timeline'
+
+      // Function to send theme to iframe
+      function sendThemeToIframe(themeName) {
+        if (iframe.contentWindow) {
+          iframe.contentWindow.postMessage(
+            {
+              type: "changeTheme",
+              theme: themeName,
+            },
+            "*",
+          );
+        }
+      }
+
+      // Function to load content based on view and dashboard
+      function loadContent() {
+        let fileToLoad;
+        let displayTitle;
+
+        if (currentView === "dashboard") {
+          fileToLoad = `dashboard-${currentDashboard}.html`;
+          displayTitle = dashboardNames[currentDashboard];
+        } else {
+          fileToLoad = timelineFiles[currentDashboard];
+          displayTitle = `${dashboardNames[currentDashboard]} - Timeline`;
+        }
+
+        iframe.src = fileToLoad;
+
+        if (windowTitle) {
+          windowTitle.textContent = displayTitle;
+        }
+
+        // Wait for iframe to load then send current theme
+        iframe.onload = function () {
+          const currentTheme =
+            localStorage.getItem("riseCapitalTheme") || "default";
+          sendThemeToIframe(currentTheme);
+        };
+      }
+
+      // Dashboard layout switching
+      const layoutBtns = document.querySelectorAll(".dashboard-btn");
+
+      function switchDashboard(dashboardId) {
+        currentDashboard = dashboardId;
+
+        layoutBtns.forEach((btn) => {
+          btn.classList.remove("active");
+          if (btn.dataset.dashboard === dashboardId) {
+            btn.classList.add("active");
+          }
+        });
+
+        localStorage.setItem("activeDashboard", dashboardId);
+        loadContent();
+      }
+
+      layoutBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          switchDashboard(btn.dataset.dashboard);
+        });
+      });
+
+      // View switching (Dashboard / Timeline)
+      const navItems = document.querySelectorAll(".nav-item[data-view]");
+
+      function switchView(view) {
+        currentView = view;
+
+        navItems.forEach((item) => {
+          item.classList.remove("active");
+          if (item.dataset.view === view) {
+            item.classList.add("active");
+          }
+        });
+
+        localStorage.setItem("currentView", view);
+        loadContent();
+      }
+
+      navItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          switchView(item.dataset.view);
+        });
+      });
+
+      // Collapse sidebar
+      const collapseBtn = document.getElementById("collapseSidebarBtn");
+
+      collapseBtn.addEventListener("click", () => {
+        leftSidebar.classList.toggle("collapsed");
+        const icon = collapseBtn.querySelector("i");
+        if (leftSidebar.classList.contains("collapsed")) {
+          icon.setAttribute("data-lucide", "chevron-right");
+          collapseBtn.querySelector("span").textContent = "Expand";
+        } else {
+          icon.setAttribute("data-lucide", "chevron-left");
+          collapseBtn.querySelector("span").textContent = "Collapse";
+        }
+        lucide.createIcons();
+      });
+
+      // Color theme toggler
+      const colorBtn = document.getElementById("color-theme-btn");
+      const colorMenu = document.getElementById("color-theme-menu");
+
+      colorBtn.onclick = (e) => {
+        e.stopPropagation();
+        colorMenu.style.display =
+          colorMenu.style.display === "flex" ? "none" : "flex";
+      };
+
+      document.onclick = (e) => {
+        if (!colorMenu.contains(e.target) && !colorBtn.contains(e.target)) {
+          colorMenu.style.display = "none";
+        }
+      };
+
+      document.querySelectorAll(".color-option").forEach((opt) => {
+        opt.onclick = () => {
+          const theme = opt.dataset.theme;
+          if (window.applyTheme) window.applyTheme(theme);
+          colorMenu.style.display = "none";
+          sendThemeToIframe(theme);
+        };
+      });
+
+      // Load saved preferences
+      const savedDashboard =
+        localStorage.getItem("activeDashboard") || "shadcn";
+      const savedView = localStorage.getItem("currentView") || "dashboard";
+
+      currentDashboard = savedDashboard;
+      currentView = savedView;
+
+      // Update active button
+      layoutBtns.forEach((btn) => {
+        if (btn.dataset.dashboard === savedDashboard) {
+          btn.classList.add("active");
+        }
+      });
+
+      // Update active nav item
+      navItems.forEach((item) => {
+        if (item.dataset.view === savedView) {
+          item.classList.add("active");
+        }
+      });
+
+      // Load initial content
+      loadContent();
+
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

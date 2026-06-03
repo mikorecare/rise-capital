@@ -1,0 +1,136 @@
+/* offerings.css - Shared offerings table styles */
+
+.offerings-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.offerings-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.offerings-table th {
+    text-align: left;
+    padding: 12px 10px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--theme-border);
+    color: var(--theme-text-secondary);
+    white-space: nowrap;
+}
+
+.offerings-table td {
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--theme-border);
+    color: var(--theme-text-primary);
+}
+
+.offerings-table tr:hover td {
+    background: var(--theme-border);
+    cursor: pointer;
+}
+
+.offerings-filter-bar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.offerings-filter-select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--theme-border);
+    background: var(--theme-card-bg);
+    color: var(--theme-text-primary);
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.offerings-search {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--theme-border);
+    background: var(--theme-card-bg);
+    color: var(--theme-text-primary);
+    font-size: 13px;
+    min-width: 200px;
+}
+
+.offerings-stats {
+    font-size: 12px;
+    color: var(--theme-text-secondary);
+    margin-bottom: 16px;
+    padding: 8px 0;
+}
+
+.status-badge-offering {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.status-open {
+    background: #10b981;
+    color: white;
+}
+
+.status-limited {
+    background: #f59e0b;
+    color: white;
+}
+
+.status-closed {
+    background: #6b7280;
+    color: white;
+}
+
+.status-coming-soon {
+    background: #3b82f6;
+    color: white;
+}
+
+.status-by-invitation {
+    background: #8b5cf6;
+    color: white;
+}
+
+.category-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.category-development { background: #2563eb20; color: #2563eb; }
+.category-drilling { background: #ea580c20; color: #ea580c; }
+.category-production { background: #05966920; color: #059669; }
+.category-fund { background: #7c3aed20; color: #7c3aed; }
+.category-equipment { background: #6b728020; color: #6b7280; }
+.category-entry-level { background: #14b8a620; color: #14b8a6; }
+.category-exclusive { background: #d946ef20; color: #d946ef; }
+.category-innovation { background: #06b6d420; color: #06b6d4; }
+.category-rework { background: #f9731620; color: #f97316; }
+.category-regional { background: #84cc1620; color: #84cc16; }
+.category-real-estate { background: #ec489920; color: #ec4899; }
+.category-branded { background: #f43f5e20; color: #f43f5e; }
+
+@media (max-width: 768px) {
+    .offerings-table th,
+    .offerings-table td {
+        padding: 8px 6px;
+        font-size: 11px;
+    }
+    .offerings-filter-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .offerings-search {
+        width: 100%;
+    }
+}

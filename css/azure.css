@@ -1,0 +1,760 @@
+/* ============================================ */
+/* MICROSOFT AZURE FLUENT DESIGN SYSTEM        */
+/* With Theme Variables Support                 */
+/* ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--theme-bg-gradient-start, #f0f4f9);
+    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+    min-height: 100vh;
+}
+
+/* Azure Top Navigation */
+.azure-top-nav {
+    background: var(--theme-card-bg, #ffffff);
+    border-bottom: 1px solid var(--theme-border, #e0e4e9);
+    padding: 0 24px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.azure-nav-left {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.logo-img {
+    height: 28px;
+    width: auto;
+}
+
+.azure-nav-item {
+    color: var(--theme-text-secondary, #5c5e63);
+    font-size: 13px;
+    font-weight: 400;
+    padding: 0 8px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+}
+
+.azure-nav-item:hover {
+    color: var(--theme-accent, #0078d4);
+}
+
+.azure-nav-item.active {
+    border-bottom-color: var(--theme-accent, #0078d4);
+    color: var(--theme-accent, #0078d4);
+}
+
+.azure-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--theme-text-secondary, #5c5e63);
+    font-size: 13px;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    background: var(--theme-accent, #0078d4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+}
+
+/* Main Layout - Left 2/3 + Right 1/3 */
+.azure-main {
+    padding: 24px;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* Welcome Banner */
+.azure-welcome {
+    background: linear-gradient(135deg, var(--theme-accent, #0078d4), var(--theme-accent-hover, #005a9e));
+    border-radius: 8px;
+    padding: 24px;
+    color: white;
+    margin-bottom: 24px;
+}
+
+.azure-welcome h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.azure-welcome p {
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+/* Two Column Layout */
+.two-column-layout {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+/* Left Column (2/3) - Cards Grid */
+.left-column {
+    flex: 2;
+}
+
+.stats-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.stat-card {
+    background: var(--theme-card-bg, #ffffff);
+    border: 1px solid var(--theme-border, #e0e4e9);
+    border-radius: 8px;
+    padding: 16px;
+    transition: all 0.2s;
+}
+
+.stat-card:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.stat-card .label {
+    font-size: 12px;
+    color: var(--theme-text-secondary, #5c5e63);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.stat-card .value {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--theme-text-primary, #1f1f1f);
+}
+
+.stat-card .trend {
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+.trend.up { color: var(--theme-status-completed, #107c10); }
+.trend.down { color: var(--theme-status-danger, #d13438); }
+
+/* Fund Cards Grid */
+.section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--theme-text-primary, #1f1f1f);
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-title a {
+    font-size: 13px;
+    color: var(--theme-accent, #0078d4);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.funds-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.fund-card {
+    background: var(--theme-card-bg, #ffffff);
+    border: 1px solid var(--theme-border, #e0e4e9);
+    border-radius: 8px;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.fund-card:hover {
+    border-color: var(--theme-accent, #0078d4);
+    transform: translateY(-2px);
+}
+
+.fund-card h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--theme-text-primary, #1f1f1f);
+    margin-bottom: 4px;
+}
+
+.fund-card .category {
+    font-size: 12px;
+    color: var(--theme-text-secondary, #5c5e63);
+    margin-bottom: 12px;
+}
+
+.fund-metrics {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.fund-metrics span {
+    font-size: 13px;
+}
+
+.fund-metrics .label {
+    color: var(--theme-text-secondary, #5c5e63);
+}
+
+.fund-metrics .value {
+    font-weight: 600;
+    color: var(--theme-text-primary, #1f1f1f);
+}
+
+.fund-status {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.fund-status.open { background: var(--theme-status-completed, #107c10); color: white; }
+.fund-status.closed { background: var(--theme-status-upcoming, #5c5e63); color: white; }
+.fund-status.limited { background: var(--theme-status-warning, #ff8c00); color: white; }
+
+/* Right Column (1/3) - Profile Sidebar */
+.right-column {
+    flex: 1;
+}
+
+.profile-card {
+    background: var(--theme-card-bg, #ffffff);
+    border: 1px solid var(--theme-border, #e0e4e9);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--theme-border, #e0e4e9);
+}
+
+.profile-avatar {
+    width: 56px;
+    height: 56px;
+    background: var(--theme-accent, #0078d4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.profile-info h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--theme-text-primary, #1f1f1f);
+}
+
+.profile-info p {
+    font-size: 13px;
+    color: var(--theme-text-secondary, #5c5e63);
+}
+
+.profile-detail {
+    margin-bottom: 16px;
+}
+
+.profile-detail .label {
+    font-size: 11px;
+    color: var(--theme-text-secondary, #5c5e63);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.profile-detail .value {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--theme-text-primary, #1f1f1f);
+}
+
+.risk-badge {
+    background: var(--theme-status-completed, #107c10);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    display: inline-block;
+}
+
+/* Quick Actions */
+.quick-actions {
+    background: var(--theme-card-bg, #ffffff);
+    border: 1px solid var(--theme-border, #e0e4e9);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.quick-actions h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--theme-text-primary, #1f1f1f);
+    margin-bottom: 16px;
+}
+
+.action-btn {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 8px;
+    background: var(--theme-bg-gradient-start, #f0f4f9);
+    border: 1px solid var(--theme-border, #e0e4e9);
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.2s;
+    color: var(--theme-text-primary, #1f1f1f);
+}
+
+.action-btn:hover {
+    background: rgba(0, 120, 212, 0.08);
+    border-color: var(--theme-accent, #0078d4);
+}
+
+.action-btn i {
+    width: 20px;
+    color: var(--theme-accent, #0078d4);
+}
+
+/* Two Tables Section */
+.tables-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.table-container {
+    background: var(--theme-card-bg, #ffffff);
+    border: 1px solid var(--theme-border, #e0e4e9);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table-header {
+    padding: 16px;
+    background: var(--theme-bg-gradient-start, #f8f9fa);
+    border-bottom: 1px solid var(--theme-border, #e0e4e9);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--theme-text-primary, #1f1f1f);
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th {
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--theme-text-secondary, #5c5e63);
+    border-bottom: 1px solid var(--theme-border, #e0e4e9);
+    background: var(--theme-bg-gradient-start, #f8f9fa);
+}
+
+.data-table td {
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--theme-text-primary, #1f1f1f);
+    border-bottom: 1px solid var(--theme-border, #e0e4e9);
+}
+
+.data-table tr:last-child td {
+    border-bottom: none;
+}
+
+.data-table tr:hover td {
+    background: var(--theme-border, #f0f4f9);
+    cursor: pointer;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.status-completed { background: var(--theme-status-completed, #107c10); color: white; }
+.status-pending { background: var(--theme-status-warning, #ff8c00); color: white; }
+.status-active { background: var(--theme-accent, #0078d4); color: white; }
+
+/* View Containers */
+.view-container {
+    display: none;
+}
+
+.view-container.active-view {
+    display: block;
+}
+
+/* Back Button */
+.back-btn {
+    background: transparent;
+    border: 1px solid var(--theme-border, #e0e4e9);
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 16px;
+    color: var(--theme-text-secondary, #5c5e63);
+    font-size: 13px;
+    transition: all 0.2s;
+}
+
+.back-btn:hover {
+    background: var(--theme-accent, #0078d4);
+    color: white;
+    border-color: var(--theme-accent, #0078d4);
+}
+
+/* Opportunity Card */
+.opportunity-card {
+    background: var(--theme-card-bg, #ffffff);
+    border: 1px solid var(--theme-border, #e0e4e9);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.opportunity-card:hover {
+    border-color: var(--theme-accent, #0078d4);
+}
+
+.opportunity-card strong {
+    color: var(--theme-text-primary, #1f1f1f);
+}
+
+.opportunity-card p {
+    color: var(--theme-text-secondary, #5c5e63);
+}
+
+/* Timeline */
+.timeline-item {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    background: var(--theme-card-bg, #ffffff);
+    border-left: 3px solid var(--theme-accent, #0078d4);
+    margin-bottom: 12px;
+    border-radius: 4px;
+}
+
+.timeline-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-top: 4px;
+}
+
+.timeline-dot.completed { background: var(--theme-status-completed, #107c10); }
+.timeline-dot.current { background: var(--theme-accent, #0078d4); }
+.timeline-dot.upcoming { background: var(--theme-status-upcoming, #5c5e63); }
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .two-column-layout { flex-direction: column; }
+    .stats-cards { grid-template-columns: repeat(2, 1fr); }
+    .tables-section { grid-template-columns: 1fr; }
+    .funds-grid { grid-template-columns: 1fr; }
+}
+
+.azure-mail-container {
+    background: var(--theme-card-bg, #ffffff);
+    border: 1px solid var(--theme-border, #e0e4e9);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.azure-mail-toolbar {
+    padding: 8px 16px;
+    border-bottom: 1px solid var(--theme-border, #e0e4e9);
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    background: var(--theme-card-bg, #ffffff);
+}
+
+.azure-mail-toolbar-btn {
+    padding: 6px 12px;
+    border-radius: 3px;
+    border: 1px solid var(--theme-border, #e0e4e9);
+    background: transparent;
+    cursor: pointer;
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--theme-text-primary, #1f1f1f);
+    transition: all 0.1s ease;
+    font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+.azure-mail-toolbar-btn:hover {
+    background: #f0f4f9;
+    border-color: #c0c4c9;
+}
+
+.azure-compose-btn {
+    background: var(--theme-accent, #0078d4);
+    color: white;
+    border: none;
+}
+
+.azure-compose-btn:hover {
+    background: var(--theme-accent-hover, #005a9e);
+}
+
+/* Mail List Header - Azure style */
+.azure-mail-list-header {
+    display: grid;
+    grid-template-columns: 32px 32px 180px 1fr 100px;
+    padding: 8px 16px;
+    background: #f8f9fa;
+    border-bottom: 1px solid var(--theme-border, #e0e4e9);
+    font-size: 12px;
+    font-weight: 600;
+    color: #5c5e63;
+    letter-spacing: 0.3px;
+}
+
+/* Mail Item - Azure flat style */
+.azure-mail-item {
+    display: grid;
+    grid-template-columns: 32px 32px 180px 1fr 100px;
+    align-items: center;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--theme-border, #e0e4e9);
+    cursor: pointer;
+    transition: background 0.1s ease;
+    font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+.azure-mail-item:hover {
+    background: #f0f4f9;
+}
+
+.azure-mail-item.unread {
+    background: #f8f9fc;
+}
+
+.azure-mail-from {
+    font-size: 13px;
+    font-weight: 500;
+    color: #1f1f1f;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.azure-mail-item.unread .azure-mail-from {
+    font-weight: 600;
+    color: #000000;
+}
+
+.azure-mail-subject {
+    font-size: 12px;
+    color: #5c5e63;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.azure-mail-item.unread .azure-mail-subject {
+    color: #1f1f1f;
+    font-weight: 500;
+}
+
+.azure-mail-date {
+    font-size: 11px;
+    color: #5c5e63;
+    text-align: right;
+}
+
+/* Star icon - Azure style */
+.azure-star-icon {
+    cursor: pointer;
+    color: #c0c4c9;
+    transition: color 0.1s;
+}
+
+.azure-star-icon.starred {
+    color: #ff8c00;
+}
+
+/* Mail Detail View - Azure panel style */
+.azure-mail-detail {
+    background: #ffffff;
+}
+
+.azure-mail-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--theme-border, #e0e4e9);
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #ffffff;
+}
+
+.azure-back-to-inbox {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 3px;
+    border: 1px solid var(--theme-border, #e0e4e9);
+    background: transparent;
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--theme-text-primary, #1f1f1f);
+    transition: background 0.1s;
+}
+
+.azure-back-to-inbox:hover {
+    background: #f0f4f9;
+}
+
+.azure-mail-detail-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.azure-mail-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 3px;
+    border: 1px solid var(--theme-border, #e0e4e9);
+    background: transparent;
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--theme-text-primary, #1f1f1f);
+    transition: background 0.1s;
+}
+
+.azure-mail-action-btn:hover {
+    background: #f0f4f9;
+}
+
+.azure-mail-detail-subject {
+    padding: 20px 24px 12px 24px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1f1f1f;
+    border-bottom: 1px solid var(--theme-border, #e0e4e9);
+}
+
+.azure-mail-detail-meta {
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #f8f9fa;
+    border-bottom: 1px solid var(--theme-border, #e0e4e9);
+}
+
+.azure-mail-detail-from {
+    font-size: 13px;
+    color: #1f1f1f;
+}
+
+.azure-mail-detail-from strong {
+    font-weight: 600;
+}
+
+.azure-mail-detail-from span {
+    color: #5c5e63;
+}
+
+.azure-mail-detail-date {
+    font-size: 12px;
+    color: #5c5e63;
+}
+
+.azure-mail-detail-message {
+    padding: 24px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #1f1f1f;
+}
+
+.mail-badge {
+    margin-left: auto;
+    background: #0078d4;
+    color: white;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 12px;
+}
+
+/* Checkbox styling - Azure style */
+.azure-mail-checkbox input {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    cursor: pointer;
+    accent-color: #0078d4;
+}
+
+@media (max-width: 768px) {
+    .azure-mail-list-header {
+        display: none;
+    }
+    .azure-mail-item {
+        grid-template-columns: 32px 32px 1fr 60px;
+        gap: 8px;
+    }
+    .azure-mail-from, .azure-mail-subject {
+        font-size: 11px;
+    }
+}

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rise Capital - Legacy System Timeline</title>
+    <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/theme-variable.css">
+    <link rel="stylesheet" href="./css/bootstrap-timeline.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="legacy-header">
+        <h1>Rise Capital Investment System</h1>
+        <p>Timeline Viewer - Portfolio Milestones</p>
+    </div>
+
+    <div class="legacy-grid">
+        <!-- STYLE 1: Legacy Vertical List -->
+        <div class="window-frame">
+            <div class="window-title-bar">
+                <span><i data-lucide="list" style="width: 12px;"></i> Vertical Timeline</span>
+                <div class="window-controls">
+                    <div class="window-btn">-</div>
+                    <div class="window-btn">□</div>
+                    <div class="window-btn">×</div>
+                </div>
+            </div>
+            <div class="window-content">
+                <ul class="legacy-list">
+                    <li class="legacy-list-item">
+                        <div class="legacy-list-marker"></div>
+                        <div class="legacy-list-date">2025-03-15</div>
+                        <div style="flex:1">
+                            <div class="legacy-list-title">Rise Energy Fund I</div>
+                            <div class="legacy-list-desc">Permian Basin acquisition closed. $50M committed.</div>
+                            <div class="legacy-list-metrics">
+                                <span><i data-lucide="dollar-sign" style="width: 10px;"></i> $50M</span>
+                                <span><i data-lucide="droplet" style="width: 10px;"></i> 5,000 BOE/D</span>
+                            </div>
+                        </div>
+                        <span class="legacy-badge legacy-badge-completed">Done</span>
+                    </li>
+                    <li class="legacy-list-item">
+                        <div class="legacy-list-marker"></div>
+                        <div class="legacy-list-date">2025-04-10</div>
+                        <div style="flex:1">
+                            <div class="legacy-list-title">GreenTech Ventures</div>
+                            <div class="legacy-list-desc">250MW solar portfolio due diligence.</div>
+                            <div class="legacy-list-metrics">
+                                <span><i data-lucide="sun" style="width: 10px;"></i> 250MW</span>
+                                <span><i data-lucide="map-pin" style="width: 10px;"></i> 3 States</span>
+                            </div>
+                        </div>
+                        <span class="legacy-badge legacy-badge-current">Active</span>
+                    </li>
+                    <li class="legacy-list-item">
+                        <div class="legacy-list-marker"></div>
+                        <div class="legacy-list-date">2025-05-20</div>
+                        <div style="flex:1">
+                            <div class="legacy-list-title">Infrastructure Alpha</div>
+                            <div class="legacy-list-desc">Regulatory approval pending for toll road.</div>
+                            <div class="legacy-list-metrics">
+                                <span><i data-lucide="route" style="width: 10px;"></i> 150 Miles</span>
+                                <span><i data-lucide="clock" style="width: 10px;"></i> 50-Year Term</span>
+                            </div>
+                        </div>
+                        <span class="legacy-badge legacy-badge-upcoming">Pending</span>
+                    </li>
+                    <li class="legacy-list-item">
+                        <div class="legacy-list-marker"></div>
+                        <div class="legacy-list-date">2025-06-30</div>
+                        <div style="flex:1">
+                            <div class="legacy-list-title">AI Innovation Fund</div>
+                            <div class="legacy-list-desc">Series A closing with 4 portfolio companies.</div>
+                            <div class="legacy-list-metrics">
+                                <span><i data-lucide="microchip" style="width: 10px;"></i> 4 Startups</span>
+                                <span><i data-lucide="trending-up" style="width: 10px;"></i> 35% IRR</span>
+                            </div>
+                        </div>
+                        <span class="legacy-badge legacy-badge-upcoming">Upcoming</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- STYLE 2: Legacy Horizontal Scroll -->
+        <div class="window-frame">
+            <div class="window-title-bar">
+                <span><i data-lucide="scroll" style="width: 12px;"></i> Horizontal Timeline</span>
+                <div class="window-controls">
+                    <div class="window-btn">-</div>
+                    <div class="window-btn">□</div>
+                    <div class="window-btn">×</div>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="legacy-horizontal">
+                    <div class="horizontal-card">
+                        <div class="horizontal-date">Q1 2025</div>
+                        <div class="horizontal-title">Rise Energy I</div>
+                        <div class="horizontal-desc">Acquisition closed. $50M secured.</div>
+                        <div class="horizontal-progress">
+                            <div class="legacy-progress-bar"><div class="legacy-progress-fill" style="width: 100%;"></div></div>
+                        </div>
+                    </div>
+                    <div class="horizontal-card">
+                        <div class="horizontal-date">Q2 2025</div>
+                        <div class="horizontal-title">GreenTech Solar</div>
+                        <div class="horizontal-desc">250MW construction. 65% complete.</div>
+                        <div class="horizontal-progress">
+                            <div class="legacy-progress-bar"><div class="legacy-progress-fill" style="width: 65%;"></div></div>
+                        </div>
+                    </div>
+                    <div class="horizontal-card">
+                        <div class="horizontal-date">Q3 2025</div>
+                        <div class="horizontal-title">Infrastructure</div>
+                        <div class="horizontal-desc">Toll road concession closing.</div>
+                        <div class="horizontal-progress">
+                            <div class="legacy-progress-bar"><div class="legacy-progress-fill" style="width: 40%;"></div></div>
+                        </div>
+                    </div>
+                    <div class="horizontal-card">
+                        <div class="horizontal-date">Q4 2025</div>
+                        <div class="horizontal-title">AI Innovation</div>
+                        <div class="horizontal-desc">Series A closing. 4 startups selected.</div>
+                        <div class="horizontal-progress">
+                            <div class="legacy-progress-bar"><div class="legacy-progress-fill" style="width: 25%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STYLE 3: Legacy Data Table -->
+        <div class="window-frame">
+            <div class="window-title-bar">
+                <span><i data-lucide="table" style="width: 12px;"></i> Data Table</span>
+                <div class="window-controls">
+                    <div class="window-btn">-</div>
+                    <div class="window-btn">□</div>
+                    <div class="window-btn">×</div>
+                </div>
+            </div>
+            <div class="window-content">
+                <table class="legacy-table">
+                    <thead>
+                        <tr><th>Date</th><th>Fund</th><th>Milestone</th><th>Value</th><th>Status</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>2025-03-15</td><td><strong>Rise Energy I</strong></td><td>Acquisition Closed</td><td>$50M</td><td><span class="legacy-badge legacy-badge-completed">Done</span></td></tr>
+                        <tr><td>2025-04-10</td><td><strong>GreenTech</strong></td><td>Due Diligence</td><td>$35M</td><td><span class="legacy-badge legacy-badge-current">Active</span></td></tr>
+                        <tr><td>2025-05-20</td><td><strong>Infrastructure</strong></td><td>Regulatory</td><td>$120M</td><td><span class="legacy-badge legacy-badge-upcoming">Pending</span></td></tr>
+                        <tr><td>2025-06-30</td><td><strong>AI Innovation</strong></td><td>Series A</td><td>$75M</td><td><span class="legacy-badge legacy-badge-upcoming">Q3</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- STYLE 4: Legacy Step Indicator -->
+        <div class="window-frame">
+            <div class="window-title-bar">
+                <span><i data-lucide="award" style="width: 12px;"></i> Step Indicator</span>
+                <div class="window-controls">
+                    <div class="window-btn">-</div>
+                    <div class="window-btn">□</div>
+                    <div class="window-btn">×</div>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="legacy-stepper">
+                    <div class="legacy-step">
+                        <div class="legacy-step-number">1</div>
+                        <div class="legacy-step-content">
+                            <div class="legacy-step-title">Fund Launch</div>
+                            <div class="legacy-step-date">Mar 2025</div>
+                            <div class="legacy-step-desc">Rise Energy I - $50M secured</div>
+                        </div>
+                    </div>
+                    <div class="legacy-step">
+                        <div class="legacy-step-number">2</div>
+                        <div class="legacy-step-content">
+                            <div class="legacy-step-title">Due Diligence</div>
+                            <div class="legacy-step-date">Apr 2025</div>
+                            <div class="legacy-step-desc">GreenTech Solar - 250MW portfolio</div>
+                        </div>
+                    </div>
+                    <div class="legacy-step">
+                        <div class="legacy-step-number">3</div>
+                        <div class="legacy-step-content">
+                            <div class="legacy-step-title">Regulatory</div>
+                            <div class="legacy-step-date">May 2025</div>
+                            <div class="legacy-step-desc">Infrastructure - Toll road approval</div>
+                        </div>
+                    </div>
+                    <div class="legacy-step">
+                        <div class="legacy-step-number">4</div>
+                        <div class="legacy-step-content">
+                            <div class="legacy-step-title">Launch</div>
+                            <div class="legacy-step-date">Jun 2025</div>
+                            <div class="legacy-step-desc">AI Innovation - Series A closing</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STYLE 5: Legacy Compact Cards -->
+        <div class="window-frame">
+            <div class="window-title-bar">
+                <span><i data-lucide="layout-grid" style="width: 12px;"></i> Compact Grid</span>
+                <div class="window-controls">
+                    <div class="window-btn">-</div>
+                    <div class="window-btn">□</div>
+                    <div class="window-btn">×</div>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="legacy-compact-grid">
+                    <div class="legacy-compact-card">
+                        <div class="compact-date">MAR 2025</div>
+                        <div class="compact-title">Rise Energy I</div>
+                        <div class="compact-desc">$50M closed. Permian Basin.</div>
+                        <div class="compact-footer">
+                            <span class="legacy-badge legacy-badge-completed">Done</span>
+                            <i data-lucide="check-circle" style="width: 12px;"></i>
+                        </div>
+                    </div>
+                    <div class="legacy-compact-card">
+                        <div class="compact-date">APR 2025</div>
+                        <div class="compact-title">GreenTech</div>
+                        <div class="compact-desc">250MW solar construction.</div>
+                        <div class="compact-footer">
+                            <span class="legacy-badge legacy-badge-current">65%</span>
+                            <i data-lucide="sun" style="width: 12px;"></i>
+                        </div>
+                    </div>
+                    <div class="legacy-compact-card">
+                        <div class="compact-date">MAY 2025</div>
+                        <div class="compact-title">Healthcare</div>
+                        <div class="compact-desc">KYC review complete.</div>
+                        <div class="compact-footer">
+                            <span class="legacy-badge legacy-badge-current">Review</span>
+                            <i data-lucide="heart" style="width: 12px;"></i>
+                        </div>
+                    </div>
+                    <div class="legacy-compact-card">
+                        <div class="compact-date">JUN 2025</div>
+                        <div class="compact-title">AI Innovation</div>
+                        <div class="compact-desc">Series A closing.</div>
+                        <div class="compact-footer">
+                            <span class="legacy-badge legacy-badge-upcoming">Q3</span>
+                            <i data-lucide="microchip" style="width: 12px;"></i>
+                        </div>
+                    </div>
+                    <div class="legacy-compact-card">
+                        <div class="compact-date">JUL 2025</div>
+                        <div class="compact-title">Infrastructure</div>
+                        <div class="compact-desc">Toll road revenue starts.</div>
+                        <div class="compact-footer">
+                            <span class="legacy-badge legacy-badge-upcoming">Pending</span>
+                            <i data-lucide="building" style="width: 12px;"></i>
+                        </div>
+                    </div>
+                    <div class="legacy-compact-card">
+                        <div class="compact-date">AUG 2025</div>
+                        <div class="compact-title">REIT Fund</div>
+                        <div class="compact-desc">Distribution to investors.</div>
+                        <div class="compact-footer">
+                            <span class="legacy-badge legacy-badge-upcoming">Q3</span>
+                            <i data-lucide="building-2" style="width: 12px;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 20px; text-align: center; font-size: 10px; color: var(--theme-text-secondary);">
+        Rise Capital Investment System v1.0 | Legacy Terminal Mode
+    </div>
+
+    <script src="./js/theme-controller.js"></script>
+    <script>
+        lucide.createIcons();
+        
+        window.addEventListener('message', function(event) {
+            if (event.data && event.data.type === 'changeTheme') {
+                if (window.applyTheme) {
+                    window.applyTheme(event.data.theme);
+                }
+                setTimeout(function() {
+                    lucide.createIcons();
+                }, 50);
+            }
+        });
+        
+        const savedTheme = localStorage.getItem('riseCapitalTheme') || 'default';
+        if (window.applyTheme) {
+            window.applyTheme(savedTheme);
+        }
+        
+        document.addEventListener('themeChanged', function() {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>

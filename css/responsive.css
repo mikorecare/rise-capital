@@ -1,0 +1,27 @@
+/* responsive.css - Mobile responsive styles */
+
+@media (max-width: 768px) {
+    .shadcn-stats-grid,
+    .azure-dashboard-cards,
+    .aws-metrics-row,
+    .bootstrap-stats-row {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .azure-left-sidebar,
+    .aws-console-sidebar,
+    .bootstrap-sidebar {
+        width: 60px;
+        overflow: hidden;
+    }
+
+    .azure-menu-item span:last-child,
+    .aws-console-menu span:last-child,
+    .bootstrap-sidebar-menu span:last-child {
+        display: none;
+    }
+
+    .shadcn-funds-grid {
+        grid-template-columns: 1fr;
+    }
+}

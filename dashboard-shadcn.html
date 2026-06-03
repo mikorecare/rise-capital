@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rise Capital - shadcn Dashboard</title>
+    <link rel="stylesheet" href="./bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/theme-variable.css" />
+    <link rel="stylesheet" href="./css/shadcn.css" />
+    <link rel="stylesheet" href="./css/shadcn-modal.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+    <link rel="stylesheet" href="./css/offerings.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <div class="shadcn-layout">
+      <!-- Sidebar Navigation -->
+      <div class="shadcn-sidebar">
+        <div class="shadcn-sidebar-header">
+          <div class="logo-area">
+            <img
+              src="./logos/rcg-logo.png"
+              alt="Rise Capital"
+              class="logo-img"
+              style="height: 32px"
+            />
+          </div>
+        </div>
+        <div class="shadcn-sidebar-nav">
+          <div class="shadcn-nav-item active" data-view="dashboard">
+            <i data-lucide="layout-dashboard" class="menu-icon"></i> Dashboard
+          </div>
+          <div class="shadcn-nav-item" data-view="funds">
+            <i data-lucide="landmark" class="menu-icon"></i> Funds
+          </div>
+          <div class="shadcn-nav-item" data-view="offerings">
+            <i data-lucide="briefcase" class="menu-icon"></i> Offerings
+          </div>
+          <div class="shadcn-nav-item" data-view="mail">
+            <i data-lucide="inbox" class="menu-icon"></i> Mail
+            <span class="mail-badge" id="mail-unread-count">3</span>
+          </div>
+          <div class="shadcn-nav-item" data-view="wallet">
+            <i data-lucide="wallet" class="menu-icon"></i> Wallet
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="shadcn-main">
+        <!-- Dashboard View -->
+        <div id="dashboard-view" class="view-container active-view">
+          <div class="dashboard-header">
+            <h1>Welcome back, John</h1>
+            <p>Here's what's happening with your portfolio today</p>
+          </div>
+
+          <div class="two-column-layout">
+            <div class="left-column">
+              <div class="stats-grid" id="stats-grid"></div>
+              <div class="section-title">Featured Funds</div>
+              <div id="dashboard-funds-grid" class="funds-grid"></div>
+            </div>
+            <div class="right-column">
+              <div class="profile-card" id="profile-card"></div>
+              <div class="quick-actions" id="quick-actions"></div>
+            </div>
+          </div>
+
+          <div class="tables-section">
+            <div class="table-container">
+              <div class="table-header">
+                <i data-lucide="receipt" style="width: 16px"></i> Recent
+                Transactions
+              </div>
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="transactions-table-body"></tbody>
+              </table>
+            </div>
+            <div class="table-container">
+              <div class="table-header">
+                <i data-lucide="calendar" style="width: 16px"></i> Upcoming
+                Milestones
+              </div>
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Project</th>
+                    <th>Milestone</th>
+                    <th>Expected Date</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="milestones-table-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Funds View -->
+        <div id="funds-view" class="view-container">
+          <div class="dashboard-header">
+            <h1>All Funds</h1>
+            <p>Browse all available investment funds</p>
+          </div>
+          <div id="all-funds-grid" class="funds-grid"></div>
+        </div>
+
+        <!-- Offerings View -->
+        <div id="offerings-view" class="view-container">
+          <div class="dashboard-header">
+            <h1>Investment Offerings</h1>
+            <p>Browse all available Rise Capital investment opportunities</p>
+          </div>
+
+          <div class="offerings-filter-bar">
+            <select
+              id="category-filter"
+              class="offerings-filter-select"
+              onchange="filterOfferings(this.value)"
+            >
+              <option value="all">All Categories</option>
+              <option value="Development">Development</option>
+              <option value="Drilling">Drilling</option>
+              <option value="Production">Production</option>
+              <option value="Fund">Fund</option>
+              <option value="Equipment">Equipment</option>
+              <option value="Entry Level">Entry Level</option>
+              <option value="Innovation">Innovation</option>
+              <option value="Regional">Regional</option>
+              <option value="Rework">Rework</option>
+              <option value="Real Estate">Real Estate</option>
+              <option value="Branded">Branded</option>
+              <option value="Exclusive">Exclusive</option>
+            </select>
+            <input
+              type="text"
+              id="offerings-search"
+              class="offerings-search"
+              placeholder="Search offerings..."
+              onkeyup="searchOfferings()"
+            />
+            <button class="back-btn" onclick="resetOfferingsFilter()">
+              Reset Filters
+            </button>
+          </div>
+
+          <div id="offerings-stats" class="offerings-stats"></div>
+
+          <div class="offerings-container">
+            <table class="offerings-table">
+              <thead>
+                <tr>
+                  <th>Offering Name</th>
+                  <th>Type</th>
+                  <th>Min Investment</th>
+                  <th>Target Return</th>
+                  <th>Term</th>
+                  <th>Location</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="offerings-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Opportunities View -->
+        <div id="opportunities-view" class="view-container">
+          <button class="back-btn" id="back-to-funds-btn">
+            ← Back to Funds
+          </button>
+          <div id="opp-header"></div>
+          <div id="opp-list-container"></div>
+        </div>
+
+        <!-- Mail View -->
+        <div id="mail-view" class="view-container">
+          <div class="dashboard-header">
+            <h1>Inbox</h1>
+            <p>Stay updated with your investment communications</p>
+          </div>
+          <div class="mail-container">
+            <div class="mail-toolbar">
+              <button
+                class="mail-toolbar-btn compose-btn"
+                onclick="alert('Compose new message')"
+              >
+                <i data-lucide="edit-3" style="width: 14px"></i> Compose
+              </button>
+              <button
+                class="mail-toolbar-btn"
+                onclick="alert('Archive selected')"
+              >
+                <i data-lucide="archive" style="width: 14px"></i> Archive
+              </button>
+              <button
+                class="mail-toolbar-btn"
+                onclick="alert('Delete selected')"
+              >
+                <i data-lucide="trash-2" style="width: 14px"></i> Delete
+              </button>
+              <button class="mail-toolbar-btn" onclick="alert('Refresh')">
+                <i data-lucide="refresh-cw" style="width: 14px"></i> Refresh
+              </button>
+            </div>
+            <div id="mail-list-view" class="mail-list">
+              <div id="mail-list-container"></div>
+            </div>
+            <div
+              id="mail-detail-view"
+              class="mail-detail"
+              style="display: none"
+            >
+              <div id="mail-detail-container"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline View -->
+        <div id="timeline-view" class="view-container">
+          <button class="back-btn" id="back-to-opp-btn">
+            ← Back to Opportunities
+          </button>
+          <div id="timeline-header"></div>
+          <div id="timeline-list-container"></div>
+        </div>
+
+        <!-- Wallet View -->
+        <div id="wallet-view" class="view-container">
+          <div class="dashboard-header">
+            <h1>Wallet</h1>
+            <p>Manage your funds and track transactions</p>
+          </div>
+          <div class="wallet-balance-card">
+            <div class="label">Total Balance</div>
+            <div class="value">$45,250.00</div>
+            <div class="label">USD</div>
+          </div>
+          <div class="wallet-stats-grid">
+            <div class="wallet-stat-card">
+              <div class="label">Available Funds</div>
+              <div class="value">$45,250</div>
+            </div>
+            <div class="wallet-stat-card">
+              <div class="label">Invested Funds</div>
+              <div class="value">$280.5M</div>
+            </div>
+            <div class="wallet-stat-card">
+              <div class="label">Withdrawn Funds</div>
+              <div class="value">$125,000</div>
+            </div>
+            <div class="wallet-stat-card">
+              <div class="label">Pending Withdrawals</div>
+              <div class="value">$0</div>
+            </div>
+          </div>
+          <div class="section-title">Transaction History</div>
+          <table class="transaction-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="transactions-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Popup -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3 id="modalTitle">Fund Details</h3>
+          <button class="modal-close" id="closeModalBtn">
+            <i data-lucide="x" style="width: 20px; height: 20px"></i>
+          </button>
+        </div>
+        <div class="modal-body" id="modalBody"></div>
+      </div>
+    </div>
+
+    <script src="./jquery/jquery.min.js"></script>
+    <script src="./js/theme-controller.js"></script>
+    <script src="./js/offerings-data.js"></script>
+    <script src="./js/shadcn-data.js"></script>
+    <script src="./js/shadcn-dashboard.js"></script>
+    <script>
+      window.closeModal = closeModal;
+      window.filterOfferings = filterOfferings;
+      window.searchOfferings = searchOfferings;
+      window.resetOfferingsFilter = resetOfferingsFilter;
+      window.openOfferingModal = openOfferingModal;
+    </script>
+  </body>
+</html>

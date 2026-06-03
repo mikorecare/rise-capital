@@ -1,0 +1,902 @@
+/* aws.css - AWS Cloudscape Design System with Theme Variables */
+
+/* ============================================ */
+/* AWS TOP NAVIGATION - Console style           */
+/* ============================================ */
+
+.aws-nav {
+    background: var(--theme-card-bg);
+    padding: 0 20px;
+    height: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--theme-border);
+}
+
+.aws-nav-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 28px;
+    width: auto;
+}
+
+.aws-nav-item {
+    color: var(--theme-text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0 8px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-bottom: 2px solid transparent;
+}
+
+.aws-nav-item:hover {
+    color: var(--theme-text-primary);
+}
+
+.aws-nav-item.active {
+    color: var(--theme-accent);
+    border-bottom-color: var(--theme-accent);
+}
+
+.aws-nav-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.aws-user {
+    color: var(--theme-text-secondary);
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ============================================ */
+/* AWS MAIN LAYOUT                              */
+/* ============================================ */
+
+.aws-layout {
+    display: flex;
+    min-height: calc(100vh - 48px);
+}
+
+/* ============================================ */
+/* AWS SIDEBAR - Console style                  */
+/* ============================================ */
+
+.aws-sidebar {
+    width: 240px;
+    background: var(--theme-sidebar-bg);
+    padding: 16px 0;
+}
+
+.aws-menu-item {
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--theme-sidebar-text);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-left: 2px solid transparent;
+}
+
+.aws-menu-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--theme-text-primary);
+}
+
+.aws-menu-item.active {
+    background: rgba(255, 153, 0, 0.1);
+    color: var(--theme-accent);
+    border-left-color: var(--theme-accent);
+}
+
+.menu-icon {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+}
+
+/* ============================================ */
+/* AWS MAIN CONTENT                             */
+/* ============================================ */
+
+.aws-content {
+    flex: 1;
+    padding: 24px;
+    background: var(--theme-bg-gradient-start);
+    overflow-y: auto;
+}
+
+/* Page Header */
+.aws-page-header {
+    margin-bottom: 24px;
+}
+
+.aws-page-header h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--theme-text-primary);
+    margin-bottom: 4px;
+}
+
+.aws-page-header p {
+    font-size: 14px;
+    color: var(--theme-text-secondary);
+}
+
+/* ============================================ */
+/* AWS METRIC ROW (4 cards)                     */
+/* ============================================ */
+
+.aws-metrics-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.aws-metric-card {
+    background: var(--theme-card-bg);
+    border: 1px solid var(--theme-border);
+    border-radius: 8px;
+    padding: 16px;
+    transition: all 0.2s;
+}
+
+.aws-metric-card:hover {
+    border-color: var(--theme-accent);
+}
+
+.aws-metric-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--theme-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.aws-metric-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--theme-text-primary);
+}
+
+/* ============================================ */
+/* AWS DASHBOARD GRID (3 columns)               */
+/* ============================================ */
+
+.aws-dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* AWS Cards */
+.aws-card {
+    background: var(--theme-card-bg);
+    border: 1px solid var(--theme-border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.aws-card-header {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--theme-border);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--theme-text-primary);
+    background: var(--theme-sidebar-bg);
+    display: flex;
+    align-items: center;
+}
+
+.aws-card-body {
+    padding: 16px;
+}
+
+/* Recently Visited Items */
+.recent-item {
+    padding: 8px 0;
+    font-size: 13px;
+    color: var(--theme-text-secondary);
+    cursor: pointer;
+    border-bottom: 1px solid var(--theme-border);
+    transition: color 0.2s;
+}
+
+.recent-item:hover {
+    color: var(--theme-accent);
+}
+
+.recent-item:last-child {
+    border-bottom: none;
+}
+
+/* Quick Action Items */
+.quick-action-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    cursor: pointer;
+    border-bottom: 1px solid var(--theme-border);
+    transition: background 0.2s;
+}
+
+.quick-action-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.quick-action-item i {
+    color: var(--theme-accent);
+    flex-shrink: 0;
+}
+
+.quick-action-item strong {
+    color: var(--theme-text-primary);
+    font-size: 13px;
+}
+
+.quick-action-item small {
+    color: var(--theme-text-secondary);
+    font-size: 11px;
+}
+
+/* Portfolio Health */
+.health-stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--theme-border);
+}
+
+.health-stat:last-child {
+    border-bottom: none;
+}
+
+.health-stat .label {
+    font-size: 13px;
+    color: var(--theme-text-secondary);
+}
+
+.health-stat .value {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--theme-text-primary);
+}
+
+/* Cost and Usage */
+.cost-stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+}
+
+.cost-stat .label {
+    font-size: 13px;
+    color: var(--theme-text-secondary);
+}
+
+.cost-stat .value {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--theme-text-primary);
+}
+
+.trend-up {
+    color: #10b981;
+    font-size: 12px;
+}
+
+.top-cost-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    font-size: 13px;
+    color: var(--theme-text-secondary);
+}
+
+/* Trusted Advisor */
+.ta-stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--theme-border);
+}
+
+.ta-stat:last-child {
+    border-bottom: none;
+}
+
+.ta-stat .label {
+    font-size: 13px;
+    color: var(--theme-text-secondary);
+}
+
+.ta-stat .value {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--theme-accent);
+}
+
+/* ============================================ */
+/* AWS FUND CARDS GRID                          */
+/* ============================================ */
+
+.aws-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+}
+
+.aws-fund-card {
+    background: var(--theme-card-bg);
+    border: 1px solid var(--theme-border);
+    border-radius: 8px;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.aws-fund-card:hover {
+    border-color: var(--theme-accent);
+    transform: translateY(-2px);
+}
+
+.aws-fund-card h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--theme-text-primary);
+    margin-bottom: 4px;
+}
+
+.aws-fund-card p {
+    font-size: 13px;
+    color: var(--theme-text-secondary);
+    margin-bottom: 12px;
+}
+
+.aws-fund-metrics {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 12px;
+    border-top: 1px solid var(--theme-border);
+}
+
+.aws-fund-metrics span {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--theme-text-primary);
+}
+
+/* Fund Status Badges */
+.fund-status {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.fund-status.open { background: #10b981; color: white; }
+.fund-status.limited { background: #f59e0b; color: #1a2b3e; }
+.fund-status.closed { background: #6b7280; color: white; }
+.fund-status.coming-soon { background: #3b82f6; color: white; }
+
+/* ============================================ */
+/* OPPORTUNITY CARD                             */
+/* ============================================ */
+
+.aws-opportunity-card {
+    background: var(--theme-card-bg);
+    border: 1px solid var(--theme-border);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.aws-opportunity-card:hover {
+    border-color: var(--theme-accent);
+}
+
+.aws-opportunity-card strong {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--theme-text-primary);
+}
+
+.aws-opportunity-card p {
+    font-size: 13px;
+    color: var(--theme-text-secondary);
+    margin: 8px 0;
+}
+
+/* ============================================ */
+/* TIMELINE                                     */
+/* ============================================ */
+
+.aws-timeline-item {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    background: var(--theme-card-bg);
+    border-left: 3px solid var(--theme-accent);
+    margin-bottom: 12px;
+    border-radius: 8px;
+}
+
+.aws-timeline-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+.aws-timeline-dot.completed { background: var(--theme-status-completed); }
+.aws-timeline-dot.current { background: var(--theme-status-current); }
+.aws-timeline-dot.upcoming { background: var(--theme-status-upcoming); }
+
+/* ============================================ */
+/* STATUS BADGES                                */
+/* ============================================ */
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.status-completed { background: var(--theme-status-completed); color: white; }
+.status-current { background: var(--theme-status-current); color: white; }
+.status-upcoming { background: var(--theme-status-upcoming); color: white; }
+.status-active { background: var(--theme-accent); color: #1a2b3e; }
+.status-due-diligence { background: #8b5cf6; color: white; }
+.status-closed { background: #6b7280; color: white; }
+
+/* ============================================ */
+/* BACK BUTTON                                  */
+/* ============================================ */
+
+.back-btn {
+    background: transparent;
+    border: 1px solid var(--theme-border);
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 16px;
+    color: var(--theme-text-secondary);
+    font-size: 13px;
+    transition: all 0.2s;
+}
+
+.back-btn:hover {
+    background: var(--theme-accent);
+    color: #1a2b3e;
+    border-color: var(--theme-accent);
+}
+
+/* ============================================ */
+/* VIEW CONTAINERS                              */
+/* ============================================ */
+
+.view-container {
+    display: none;
+}
+
+.view-container.active-view {
+    display: block;
+}
+
+/* ============================================ */
+/* AWS WALLET                                   */
+/* ============================================ */
+
+.aws-wallet-balance {
+    background: linear-gradient(135deg, var(--theme-accent), var(--theme-accent-hover));
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+.aws-wallet-balance .label {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 0.5px;
+}
+
+.aws-wallet-balance .value {
+    font-size: 32px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-top: 8px;
+}
+
+.aws-wallet-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.aws-wallet-card {
+    background: var(--theme-card-bg);
+    border: 1px solid var(--theme-border);
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.aws-wallet-card .label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--theme-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.aws-wallet-card .value {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--theme-text-primary);
+    margin-top: 8px;
+}
+
+/* Transaction Table */
+.aws-transaction-table {
+    width: 100%;
+    background: var(--theme-card-bg);
+    border-radius: 8px;
+    border: 1px solid var(--theme-border);
+    overflow: hidden;
+}
+
+.aws-transaction-table th {
+    padding: 12px;
+    text-align: left;
+    background: var(--theme-sidebar-bg);
+    color: var(--theme-text-secondary);
+    font-size: 12px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--theme-border);
+}
+
+.aws-transaction-table td {
+    padding: 12px;
+    border-bottom: 1px solid var(--theme-border);
+    color: var(--theme-text-primary);
+    font-size: 13px;
+}
+
+.transaction-type {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.transaction-type.deposit { background: #10b98120; color: #10b981; }
+.transaction-type.investment { background: #f59e0b20; color: #f59e0b; }
+.transaction-type.withdrawal { background: #ef444420; color: #ef4444; }
+.transaction-type.dividend { background: #ff990020; color: #ff9900; }
+
+.amount-positive { color: #10b981; }
+.amount-negative { color: #ef4444; }
+
+/* ============================================ */
+/* AWS MAIL - Console Style                     */
+/* ============================================ */
+
+.aws-mail-container {
+    background: var(--theme-card-bg);
+    border: 1px solid var(--theme-border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.aws-mail-toolbar {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--theme-border);
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    background: var(--theme-sidebar-bg);
+}
+
+.aws-mail-toolbar-btn {
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid var(--theme-border);
+    background: transparent;
+    cursor: pointer;
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--theme-text-secondary);
+    transition: all 0.2s;
+}
+
+.aws-mail-toolbar-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--theme-text-primary);
+    border-color: var(--theme-accent);
+}
+
+.aws-compose-btn {
+    background: var(--theme-accent);
+    color: #1a2b3e;
+    border: none;
+}
+
+.aws-compose-btn:hover {
+    background: var(--theme-accent-hover);
+    color: #1a2b3e;
+}
+
+.aws-mail-list-header {
+    display: grid;
+    grid-template-columns: 32px 32px 200px 1fr 100px;
+    padding: 10px 16px;
+    background: var(--theme-sidebar-bg);
+    border-bottom: 1px solid var(--theme-border);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--theme-text-secondary);
+}
+
+.aws-mail-item {
+    display: grid;
+    grid-template-columns: 32px 32px 200px 1fr 100px;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--theme-border);
+    cursor: pointer;
+    transition: background 0.1s;
+}
+
+.aws-mail-item:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.aws-mail-item.unread {
+    background: rgba(255, 153, 0, 0.05);
+}
+
+.aws-mail-from {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--theme-text-primary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.aws-mail-item.unread .aws-mail-from {
+    font-weight: 700;
+    color: var(--theme-accent);
+}
+
+.aws-mail-subject {
+    font-size: 13px;
+    color: var(--theme-text-secondary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.aws-mail-item.unread .aws-mail-subject {
+    color: var(--theme-text-primary);
+}
+
+.aws-mail-date {
+    font-size: 11px;
+    color: var(--theme-text-secondary);
+    text-align: right;
+}
+
+.aws-star-icon {
+    cursor: pointer;
+    color: #5a6e85;
+    transition: color 0.2s;
+}
+
+.aws-star-icon.starred {
+    color: var(--theme-accent);
+}
+
+.aws-mail-checkbox input {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: var(--theme-accent);
+}
+
+/* Mail Detail View */
+.aws-mail-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--theme-border);
+    flex-wrap: wrap;
+    gap: 12px;
+    background: var(--theme-card-bg);
+}
+
+.aws-back-to-inbox {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid var(--theme-border);
+    background: transparent;
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--theme-text-secondary);
+    transition: all 0.2s;
+}
+
+.aws-back-to-inbox:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--theme-text-primary);
+}
+
+.aws-mail-detail-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.aws-mail-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid var(--theme-border);
+    background: transparent;
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--theme-text-secondary);
+    transition: all 0.2s;
+}
+
+.aws-mail-action-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--theme-text-primary);
+    border-color: var(--theme-accent);
+}
+
+.aws-mail-detail-subject {
+    padding: 20px 24px 12px 24px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--theme-text-primary);
+    border-bottom: 1px solid var(--theme-border);
+}
+
+.aws-mail-detail-meta {
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    border-bottom: 1px solid var(--theme-border);
+    background: var(--theme-sidebar-bg);
+}
+
+.aws-mail-detail-from {
+    font-size: 13px;
+    color: var(--theme-text-primary);
+}
+
+.aws-mail-detail-from strong {
+    font-weight: 600;
+}
+
+.aws-mail-detail-from span {
+    color: var(--theme-text-secondary);
+}
+
+.aws-mail-detail-date {
+    font-size: 12px;
+    color: var(--theme-text-secondary);
+}
+
+.aws-mail-detail-message {
+    padding: 24px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--theme-text-primary);
+}
+
+.mail-badge {
+    margin-left: auto;
+    background: var(--theme-accent);
+    color: #1a2b3e;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+/* ============================================ */
+/* RESPONSIVE                                   */
+/* ============================================ */
+
+@media (max-width: 1024px) {
+    .aws-dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .aws-metrics-row,
+    .aws-wallet-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .aws-cards-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .aws-sidebar {
+        width: 60px;
+        overflow: hidden;
+    }
+    
+    .aws-menu-item span:last-child {
+        display: none;
+    }
+    
+    .aws-content {
+        padding: 16px;
+    }
+    
+    .aws-page-header h1 {
+        font-size: 20px;
+    }
+    
+    .aws-mail-list-header {
+        display: none;
+    }
+    
+    .aws-mail-item {
+        grid-template-columns: 32px 32px 1fr 60px;
+        gap: 8px;
+    }
+}

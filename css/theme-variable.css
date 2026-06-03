@@ -1,0 +1,32 @@
+/* theme-variable.css */
+
+:root {
+    /* Default Light Theme */
+    --theme-bg-gradient-start: #f5f7fa;
+    --theme-bg-gradient-end: #e9ecef;
+    --theme-card-bg: #ffffff;
+    --theme-text-primary: #212529;
+    --theme-text-secondary: #6c757d;
+    --theme-sidebar-bg: #1b4332;
+    --theme-sidebar-text: #ffffff;
+    --theme-accent: #2d6a4f;
+    --theme-accent-hover: #1b4332;
+    --theme-border: #dee2e6;
+    --theme-radius: 16px;
+    
+    /* Status colors - ALL must use theme variables */
+    --theme-status-completed: #2d6a4f;
+    --theme-status-current: var(--theme-accent);
+    --theme-status-upcoming: #6c757d;
+    --theme-status-warning: #f59e0b;
+    --theme-status-danger: #dc2626;
+    --theme-status-success: var(--theme-status-completed);
+}
+
+/* Status badges - NO hardcoded colors */
+.status-completed { background: var(--theme-status-completed) !important; color: white; }
+.status-current { background: var(--theme-status-current) !important; color: white; }
+.status-upcoming { background: var(--theme-status-upcoming) !important; color: white; }
+.status-success { background: var(--theme-status-success) !important; color: white; }
+.status-warning { background: var(--theme-status-warning) !important; color: white; }
+.status-danger { background: var(--theme-status-danger) !important; color: white; }

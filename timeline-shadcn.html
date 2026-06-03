@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Timeline - shadcn</title>
+    <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/theme-variable.css">
+    <link rel="stylesheet" href="./css/shadcn-timeline.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="timeline-container">
+        <div class="page-header">
+            <h1>Timeline Gallery</h1>
+            <p>5 different timeline styles for your project milestones</p>
+        </div>
+
+        <div class="timeline-grid">
+            <!-- STYLE 1: Vertical Timeline -->
+            <div class="timeline-card">
+                <div class="timeline-card-header">
+                    <h2><i data-lucide="align-justify"></i> Vertical Timeline</h2>
+                </div>
+                <div class="timeline-card-body">
+                    <div class="vertical-timeline">
+                        <div class="vt-item">
+                            <div class="vt-dot"></div>
+                            <div class="vt-date">March 15, 2025</div>
+                            <div class="vt-title">Project Kickoff</div>
+                            <div class="vt-desc">Initial planning and team assembly</div>
+                        </div>
+                        <div class="vt-item">
+                            <div class="vt-dot"></div>
+                            <div class="vt-date">April 10, 2025</div>
+                            <div class="vt-title">Due Diligence</div>
+                            <div class="vt-desc">Technical and financial review</div>
+                        </div>
+                        <div class="vt-item">
+                            <div class="vt-dot"></div>
+                            <div class="vt-date">May 20, 2025</div>
+                            <div class="vt-title">Regulatory Approval</div>
+                            <div class="vt-desc">State and federal permitting</div>
+                        </div>
+                        <div class="vt-item">
+                            <div class="vt-dot"></div>
+                            <div class="vt-date">June 30, 2025</div>
+                            <div class="vt-title">Project Launch</div>
+                            <div class="vt-desc">Final closing and execution</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STYLE 2: Horizontal Scrolling Timeline -->
+            <div class="timeline-card">
+                <div class="timeline-card-header">
+                    <h2><i data-lucide="scroll"></i> Horizontal Timeline</h2>
+                </div>
+                <div class="timeline-card-body">
+                    <div class="horizontal-timeline">
+                        <div class="ht-item">
+                            <div class="ht-icon"><i data-lucide="rocket" style="width: 20px;"></i></div>
+                            <div class="ht-date">Mar 15, 2025</div>
+                            <div class="ht-title">Kickoff</div>
+                            <span class="badge badge-completed">Completed</span>
+                        </div>
+                        <div class="ht-item">
+                            <div class="ht-icon"><i data-lucide="search" style="width: 20px;"></i></div>
+                            <div class="ht-date">Apr 10, 2025</div>
+                            <div class="ht-title">Due Diligence</div>
+                            <span class="badge badge-current">In Progress</span>
+                        </div>
+                        <div class="ht-item">
+                            <div class="ht-icon"><i data-lucide="building" style="width: 20px;"></i></div>
+                            <div class="ht-date">May 20, 2025</div>
+                            <div class="ht-title">Regulatory</div>
+                            <span class="badge badge-upcoming">Upcoming</span>
+                        </div>
+                        <div class="ht-item">
+                            <div class="ht-icon"><i数据-lucide="flag" style="width: 20px;"></i></div>
+                            <div class="ht-date">Jun 30, 2025</div>
+                            <div class="ht-title">Launch</div>
+                            <span class="badge badge-upcoming">Upcoming</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STYLE 3: Compact List Timeline -->
+            <div class="timeline-card">
+                <div class="timeline-card-header">
+                    <h2><i data-lucide="list"></i> Compact Timeline</h2>
+                </div>
+                <div class="timeline-card-body">
+                    <div class="compact-timeline">
+                        <div class="ct-item">
+                            <div class="ct-status completed"></div>
+                            <div class="ct-date">Mar 15, 2025</div>
+                            <div class="ct-content">
+                                <div class="ct-title">Project Kickoff</div>
+                                <div class="ct-desc">Team assembly and planning</div>
+                            </div>
+                            <span class="ct-badge badge-completed">Done</span>
+                        </div>
+                        <div class="ct-item">
+                            <div class="ct-status current"></div>
+                            <div class="ct-date">Apr 10, 2025</div>
+                            <div class="ct-content">
+                                <div class="ct-title">Due Diligence</div>
+                                <div class="ct-desc">Financial and legal review</div>
+                            </div>
+                            <span class="ct-badge badge-current">Active</span>
+                        </div>
+                        <div class="ct-item">
+                            <div class="ct-status upcoming"></div>
+                            <div class="ct-date">May 20, 2025</div>
+                            <div class="ct-content">
+                                <div class="ct-title">Regulatory Approval</div>
+                                <div class="ct-desc">Permitting process</div>
+                            </div>
+                            <span class="ct-badge badge-upcoming">Pending</span>
+                        </div>
+                        <div class="ct-item">
+                            <div class="ct-status upcoming"></div>
+                            <div class="ct-date">Jun 30, 2025</div>
+                            <div class="ct-content">
+                                <div class="ct-title">Project Launch</div>
+                                <div class="ct-desc">Execution begins</div>
+                            </div>
+                            <span class="ct-badge badge-upcoming">Pending</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STYLE 4: Milestone Cards Timeline -->
+            <div class="timeline-card">
+                <div class="timeline-card-header">
+                    <h2><i data-lucide="award"></i> Milestone Timeline</h2>
+                </div>
+                <div class="timeline-card-body">
+                    <div class="milestone-timeline">
+                        <div class="mt-item">
+                            <div class="mt-icon"><i data-lucide="check-circle" style="width: 18px;"></i></div>
+                            <div class="mt-content">
+                                <div class="mt-date">March 15, 2025</div>
+                                <div class="mt-title">Project Kickoff</div>
+                                <span class="badge badge-completed">Completed</span>
+                            </div>
+                        </div>
+                        <div class="mt-item">
+                            <div class="mt-icon"><i data-lucide="loader" style="width: 18px;"></i></div>
+                            <div class="mt-content">
+                                <div class="mt-date">April 10, 2025</div>
+                                <div class="mt-title">Due Diligence</div>
+                                <span class="badge badge-current">In Progress</span>
+                            </div>
+                        </div>
+                        <div class="mt-item">
+                            <div class="mt-icon"><i data-lucide="clock" style="width: 18px;"></i></div>
+                            <div class="mt-content">
+                                <div class="mt-date">May 20, 2025</div>
+                                <div class="mt-title">Regulatory Approval</div>
+                                <span class="badge badge-upcoming">Upcoming</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STYLE 5: Grid Card Timeline -->
+            <div class="timeline-card">
+                <div class="timeline-card-header">
+                    <h2><i data-lucide="layout-grid"></i> Grid Timeline</h2>
+                </div>
+                <div class="timeline-card-body">
+                    <div class="grid-timeline">
+                        <div class="gt-item">
+                            <div class="gt-date">Mar 15, 2025</div>
+                            <div class="gt-title">Kickoff</div>
+                            <div class="gt-desc">Initial planning and team assembly</div>
+                            <div class="gt-meta">
+                                <span class="badge badge-completed">Done</span>
+                                <i data-lucide="check-circle" style="width: 16px;"></i>
+                            </div>
+                        </div>
+                        <div class="gt-item">
+                            <div class="gt-date">Apr 10, 2025</div>
+                            <div class="gt-title">Due Diligence</div>
+                            <div class="gt-desc">Technical and financial review</div>
+                            <div class="gt-meta">
+                                <span class="badge badge-current">Active</span>
+                                <i data-lucide="loader" style="width: 16px;"></i>
+                            </div>
+                        </div>
+                        <div class="gt-item">
+                            <div class="gt-date">May 20, 2025</div>
+                            <div class="gt-title">Regulatory</div>
+                            <div class="gt-desc">State and federal permits</div>
+                            <div class="gt-meta">
+                                <span class="badge badge-upcoming">Pending</span>
+                                <i data-lucide="clock" style="width: 16px;"></i>
+                            </div>
+                        </div>
+                        <div class="gt-item">
+                            <div class="gt-date">Jun 30, 2025</div>
+                            <div class="gt-title">Launch</div>
+                            <div class="gt-desc">Final closing and execution</div>
+                            <div class="gt-meta">
+                                <span class="badge badge-upcoming">Pending</span>
+                                <i data-lucide="calendar" style="width: 16px;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/theme-controller.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Listen for theme changes from parent iframe
+        window.addEventListener('message', function(event) {
+            if (event.data && event.data.type === 'changeTheme') {
+                const themeName = event.data.theme;
+                if (window.applyTheme) {
+                    window.applyTheme(themeName);
+                }
+            }
+        });
+        
+        // Also apply theme from localStorage on load
+        const savedTheme = localStorage.getItem('riseCapitalTheme') || 'default';
+        if (window.applyTheme) {
+            window.applyTheme(savedTheme);
+        } else {
+            // Fallback: reload the page with theme parameter
+            console.log('Waiting for theme-controller to load');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rise Capital - AWS Console Dashboard</title>
+    <link rel="stylesheet" href="./bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/theme-variable.css" />
+    <link rel="stylesheet" href="./css/shared.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+    <link rel="stylesheet" href="./css/aws.css" />
+    <link rel="stylesheet" href="./css/aws-modal.css" />
+    <link href="https://fonts.cdnfonts.com/css/amazon-ember" rel="stylesheet" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <div class="aws-nav">
+      <div class="aws-nav-left">
+        <div class="logo-area">
+          <img
+            src="./logos/rcg-logo.png"
+            alt="Rise Capital"
+            class="logo-img"
+            style="height: 32px"
+          />
+        </div>
+        <div class="aws-nav-item active" data-view="dashboard">Dashboard</div>
+        <div class="aws-nav-item" data-view="funds">Funds</div>
+        <div class="aws-nav-item" data-view="mail">Mail</div>
+        <div class="aws-nav-item" data-view="wallet">Wallet</div>
+      </div>
+      <div class="aws-nav-right">
+        <div class="aws-user">
+          <span>investor@risecapital.com</span>
+          <span>▼</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="aws-layout">
+      <div class="aws-sidebar">
+        <div class="aws-menu-item active" data-view="dashboard">
+          <i data-lucide="layout-dashboard" class="menu-icon"></i> Dashboard
+        </div>
+        <div class="aws-menu-item" data-view="funds">
+          <i data-lucide="landmark" class="menu-icon"></i> Funds
+        </div>
+        <div class="aws-menu-item" data-view="wallet">
+          <i data-lucide="wallet" class="menu-icon"></i> Wallet
+        </div>
+        <div class="aws-menu-item">
+          <i data-lucide="settings" class="menu-icon"></i> Settings
+        </div>
+      </div>
+
+      <div class="aws-content">
+        <!-- Dashboard View -->
+        <div id="dashboard-view" class="view-container active-view">
+          <div class="aws-page-header">
+            <h1>Console Home</h1>
+            <p>Rise Capital Investor Portal</p>
+          </div>
+
+          <!-- Metrics Row -->
+          <div class="aws-metrics-row">
+            <div class="aws-metric-card">
+              <div class="aws-metric-label">Portfolio Value</div>
+              <div class="aws-metric-value">$280.5M</div>
+            </div>
+            <div class="aws-metric-card">
+              <div class="aws-metric-label">Active Funds</div>
+              <div class="aws-metric-value">6</div>
+            </div>
+            <div class="aws-metric-card">
+              <div class="aws-metric-label">IRR Return</div>
+              <div class="aws-metric-value">22.4%</div>
+            </div>
+            <div class="aws-metric-card">
+              <div class="aws-metric-label">Wallet Balance</div>
+              <div class="aws-metric-value">$45.2K</div>
+            </div>
+          </div>
+
+          <!-- 3 Column Grid like AWS Console -->
+          <div class="aws-dashboard-grid">
+            <!-- Column 1: Recently Visited + Build a Solution -->
+            <div>
+              <div class="aws-card">
+                <div class="aws-card-header">
+                  <i
+                    data-lucide="clock"
+                    style="width: 14px; margin-right: 8px"
+                  ></i>
+                  Recently visited
+                </div>
+                <div class="aws-card-body" id="recently-visited-list"></div>
+              </div>
+              <div class="aws-card" style="margin-top: 20px">
+                <div class="aws-card-header">
+                  <i
+                    data-lucide="zap"
+                    style="width: 14px; margin-right: 8px"
+                  ></i>
+                  Build a solution
+                </div>
+                <div class="aws-card-body" id="quick-actions-list"></div>
+              </div>
+            </div>
+
+            <!-- Column 2: AWS Health + Cost Explorer -->
+            <div>
+              <div class="aws-card">
+                <div class="aws-card-header">
+                  <i
+                    data-lucide="activity"
+                    style="width: 14px; margin-right: 8px"
+                  ></i>
+                  Portfolio Health
+                </div>
+                <div class="aws-card-body">
+                  <div class="health-stat">
+                    <span class="top-cost-item">Open issues</span
+                    ><span class="value" id="health-open-issues">0</span>
+                  </div>
+                  <div class="health-stat">
+                    <span class="top-cost-item">Scheduled changes</span
+                    ><span class="value" id="health-scheduled-changes">0</span>
+                  </div>
+                  <div class="health-stat">
+                    <span class="top-cost-item">Other notifications</span
+                    ><span class="value" id="health-other-notifications"
+                      >0</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="aws-card" style="margin-top: 20px">
+                <div class="aws-card-header">
+                  <i
+                    data-lucide="dollar-sign"
+                    style="width: 14px; margin-right: 8px"
+                  ></i>
+                  Cost and usage
+                </div>
+                <div class="aws-card-body">
+                  <div class="cost-stat">
+                    <span class="top-cost-item">Current month costs</span
+                    ><span class="value" id="cost-current-month">$0</span>
+                  </div>
+                  <div class="cost-stat">
+                    <span class="top-cost-item">Forecasted month end costs</span
+                    ><span class="value" id="cost-forecasted">$0</span>
+                  </div>
+                  <div class="cost-stat">
+                    <span
+                      class="label trend-up"
+                      id="cost-forecast-trend"
+                    ></span>
+                  </div>
+                  <div class="cost-stat">
+                    <span class="top-cost-item">Last month costs</span
+                    ><span class="value" id="cost-last-month">$0</span>
+                  </div>
+                  <div
+                    style="
+                      margin-top: 12px;
+                      padding-top: 8px;
+                      border-top: 1px solid var(--theme-border);
+                    "
+                  >
+                    <div class="aws-card-header" style="padding: 0 0 8px 0">
+                      Top costs for current month
+                    </div>
+                    <div id="top-costs-list"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Column 3: Trusted Advisor + Available Funds Preview -->
+            <div>
+              <div class="aws-card">
+                <div class="aws-card-header">
+                  <i
+                    data-lucide="shield"
+                    style="width: 14px; margin-right: 8px"
+                  ></i>
+                  Trusted Advisor
+                </div>
+                <div class="aws-card-body">
+                  <div class="ta-stat">
+                    <span class="top-cost-item">Action recommended</span
+                    ><span class="value" id="ta-action-recommended">0</span>
+                  </div>
+                  <div class="ta-stat">
+                    <span class="top-cost-item">Investigation recommended</span
+                    ><span class="value" id="ta-investigation-recommended"
+                      >0</span
+                    >
+                  </div>
+                  <div class="ta-stat">
+                    <span class="top-cost-item">Passed items</span
+                    ><span class="value" id="ta-passed-items">0</span>
+                  </div>
+                </div>
+              </div>
+              <div class="aws-card" style="margin-top: 20px">
+                <div class="aws-card-header">
+                  <i
+                    data-lucide="landmark"
+                    style="width: 14px; margin-right: 8px"
+                  ></i>
+                  Available Funds
+                </div>
+                <div class="aws-card-body" id="dashboard-funds-grid"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Funds View -->
+        <div id="funds-view" class="view-container">
+          <div class="aws-page-header">
+            <h1>All Funds</h1>
+            <p>Browse all available investment funds</p>
+          </div>
+          <div id="all-funds-grid" class="aws-cards-grid"></div>
+        </div>
+
+        <!-- Opportunities View -->
+        <div id="opportunities-view" class="view-container">
+          <button class="back-btn" id="back-to-funds-btn">
+            ← Back to Funds
+          </button>
+          <div id="opp-header"></div>
+          <div id="opp-list-container"></div>
+        </div>
+
+        <!-- Timeline View -->
+        <div id="timeline-view" class="view-container">
+          <button class="back-btn" id="back-to-opp-btn">
+            ← Back to Opportunities
+          </button>
+          <div id="timeline-header"></div>
+          <div id="timeline-list-container"></div>
+        </div>
+
+        <div id="mail-view" class="view-container">
+          <div class="aws-page-header">
+            <h1>Mail</h1>
+            <p>Stay updated with your investment communications</p>
+          </div>
+
+          <div class="aws-mail-container">
+            <div class="aws-mail-toolbar">
+              <button
+                class="aws-mail-toolbar-btn aws-compose-btn"
+                onclick="alert('Compose new message')"
+              >
+                <i data-lucide="edit-3" style="width: 14px"></i> Compose
+              </button>
+              <button
+                class="aws-mail-toolbar-btn"
+                onclick="alert('Archive selected')"
+              >
+                <i data-lucide="archive" style="width: 14px"></i> Archive
+              </button>
+              <button
+                class="aws-mail-toolbar-btn"
+                onclick="alert('Delete selected')"
+              >
+                <i data-lucide="trash-2" style="width: 14px"></i> Delete
+              </button>
+              <button class="aws-mail-toolbar-btn" onclick="alert('Refresh')">
+                <i data-lucide="refresh-cw" style="width: 14px"></i> Refresh
+              </button>
+            </div>
+
+            <!-- Mail List View -->
+            <div id="aws-mail-list-view">
+              <div class="aws-mail-list-header">
+                <div></div>
+                <div></div>
+                <div>From</div>
+                <div>Subject</div>
+                <div>Date</div>
+              </div>
+              <div id="aws-mail-list-container"></div>
+            </div>
+
+            <!-- Mail Detail View -->
+            <div id="aws-mail-detail-view" style="display: none">
+              <div id="aws-mail-detail-container"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wallet View -->
+        <div id="wallet-view" class="view-container">
+          <div class="aws-page-header">
+            <h1>Wallet</h1>
+            <p>Manage your funds and track transactions</p>
+          </div>
+          <div class="aws-wallet-balance">
+            <div class="top-cost-item">Total Balance</div>
+            <div class="value">$45,250.00</div>
+            <div class="top-cost-item">USD</div>
+          </div>
+          <div class="aws-wallet-grid">
+            <div class="aws-wallet-card">
+              <div class="top-cost-item">Available Funds</div>
+              <div class="value">$45,250</div>
+            </div>
+            <div class="aws-wallet-card">
+              <div class="top-cost-item">Invested Funds</div>
+              <div class="value">$280.5M</div>
+            </div>
+            <div class="aws-wallet-card">
+              <div class="top-cost-item">Withdrawn Funds</div>
+              <div class="value">$125K</div>
+            </div>
+            <div class="aws-wallet-card">
+              <div class="top-cost-item">Pending Withdrawals</div>
+              <div class="value">$0</div>
+            </div>
+          </div>
+          <div class="aws-section-header">Transaction History</div>
+          <table class="aws-transaction-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="transactions-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Popup -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3 id="modalTitle">Fund Details</h3>
+          <button class="modal-close" id="closeModalBtn">
+            <i data-lucide="x" style="width: 18px; height: 18px"></i>
+          </button>
+        </div>
+        <div class="modal-body" id="modalBody"></div>
+      </div>
+    </div>
+
+    <script src="./jquery/jquery.min.js"></script>
+    <script src="./js/theme-controller.js"></script>
+    <script src="./js/aws-data.js"></script>
+    <script src="./js/aws-dashboard.js"></script>
+  </body>
+</html>

@@ -1,0 +1,462 @@
+/* aws-timeline.css - AWS Cloudscape Design System Timeline Styles */
+
+/* ============================================ */
+/* AWS CLOUDSCAPE DESIGN SYSTEM                */
+/* Dense data tables, narrow side panels,      */
+/* subtle borders, AWS color palette           */
+/* ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--theme-bg-gradient-start, #1a2b3e);
+    font-family: "Amazon Ember", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    padding: 24px;
+}
+
+/* AWS Page Header */
+.aws-page-header {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--theme-border, #2c3e50);
+}
+
+.aws-page-header h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--theme-text-primary, #ffffff);
+    margin-bottom: 4px;
+    letter-spacing: -0.3px;
+}
+
+.aws-page-header p {
+    font-size: 14px;
+    color: var(--theme-text-secondary, #8796a8);
+}
+
+/* AWS Timeline Grid - Cloudscape grid system */
+.aws-timeline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+    gap: 20px;
+}
+
+/* AWS Card - Cloudscape container style */
+.aws-card {
+    background: var(--theme-card-bg, #1f2e40);
+    border: 1px solid var(--theme-border, #2c3e50);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.aws-card-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--theme-border, #2c3e50);
+    background: var(--theme-sidebar-bg, #1a2b3e);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.aws-card-header h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--theme-text-primary, #ffffff);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.aws-card-body {
+    padding: 20px;
+}
+
+/* ============================================ */
+/* STYLE 1: AWS Vertical Timeline              */
+/* ============================================ */
+.aws-vertical-timeline {
+    position: relative;
+    padding-left: 28px;
+}
+
+.aws-vertical-timeline::before {
+    content: '';
+    position: absolute;
+    left: 9px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--theme-border, #2c3e50);
+}
+
+.av-item {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.av-dot {
+    position: absolute;
+    left: -24px;
+    top: 4px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--theme-accent, #ff9900);
+    border: 2px solid var(--theme-card-bg, #1f2e40);
+    box-shadow: 0 0 0 2px var(--theme-accent, #ff9900);
+}
+
+.av-date {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--theme-accent, #ff9900);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.av-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--theme-text-primary, #ffffff);
+    margin-bottom: 6px;
+}
+
+.av-desc {
+    font-size: 12px;
+    color: var(--theme-text-secondary, #8796a8);
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+.av-metrics {
+    display: flex;
+    gap: 16px;
+    font-size: 11px;
+    color: var(--theme-text-secondary, #8796a8);
+    font-family: monospace;
+}
+
+/* ============================================ */
+/* STYLE 2: AWS Horizontal Scrolling           */
+/* ============================================ */
+.aws-horizontal-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 16px;
+    padding-bottom: 16px;
+    scroll-snap-type: x mandatory;
+}
+
+.aws-horizontal-scroll::-webkit-scrollbar {
+    height: 6px;
+}
+
+.aws-horizontal-scroll::-webkit-scrollbar-track {
+    background: var(--theme-border, #2c3e50);
+    border-radius: 3px;
+}
+
+.aws-horizontal-scroll::-webkit-scrollbar-thumb {
+    background: var(--theme-accent, #ff9900);
+    border-radius: 3px;
+}
+
+.ah-card {
+    min-width: 300px;
+    background: var(--theme-card-bg, #1f2e40);
+    border: 1px solid var(--theme-border, #2c3e50);
+    border-radius: 8px;
+    padding: 16px;
+    scroll-snap-align: start;
+    transition: all 0.2s;
+}
+
+.ah-card:hover {
+    border-color: var(--theme-accent, #ff9900);
+}
+
+.ah-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.ah-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 153, 0, 0.1);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ah-icon i {
+    color: var(--theme-accent, #ff9900);
+}
+
+.ah-date {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--theme-text-secondary, #8796a8);
+    text-transform: uppercase;
+}
+
+.ah-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--theme-text-primary, #ffffff);
+    margin-bottom: 8px;
+}
+
+.ah-desc {
+    font-size: 12px;
+    color: var(--theme-text-secondary, #8796a8);
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.ah-progress {
+    margin-top: 12px;
+}
+
+.aws-progress-bar {
+    height: 4px;
+    background: var(--theme-border, #2c3e50);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.aws-progress-fill {
+    height: 100%;
+    background: var(--theme-accent, #ff9900);
+    border-radius: 2px;
+}
+
+/* ============================================ */
+/* STYLE 3: AWS Dense Data Table               */
+/* ============================================ */
+.aws-data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.aws-data-table th {
+    text-align: left;
+    padding: 10px 8px;
+    font-weight: 600;
+    color: var(--theme-text-secondary, #8796a8);
+    border-bottom: 1px solid var(--theme-border, #2c3e50);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.aws-data-table td {
+    padding: 12px 8px;
+    color: var(--theme-text-primary, #ffffff);
+    border-bottom: 1px solid var(--theme-border, #2c3e50);
+}
+
+.aws-data-table tr:last-child td {
+    border-bottom: none;
+}
+
+.aws-data-table tr:hover td {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.table-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+/* ============================================ */
+/* STYLE 4: AWS Milestone Tracker              */
+/* ============================================ */
+.aws-milestone-tracker {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.aws-milestone-item {
+    display: flex;
+    gap: 16px;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.aws-milestone-item:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 16px;
+    top: 32px;
+    bottom: -8px;
+    width: 2px;
+    background: var(--theme-border, #2c3e50);
+}
+
+.milestone-icon {
+    width: 34px;
+    height: 34px;
+    background: var(--theme-card-bg, #1f2e40);
+    border: 1px solid var(--theme-border, #2c3e50);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    z-index: 1;
+}
+
+.milestone-content {
+    flex: 1;
+    background: var(--theme-sidebar-bg, #1a2b3e);
+    border-radius: 6px;
+    padding: 12px 16px;
+}
+
+.milestone-date {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--theme-text-secondary, #8796a8);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+}
+
+.milestone-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--theme-text-primary, #ffffff);
+    margin-bottom: 4px;
+}
+
+.milestone-desc {
+    font-size: 11px;
+    color: var(--theme-text-secondary, #8796a8);
+    line-height: 1.4;
+}
+
+/* ============================================ */
+/* STYLE 5: AWS Compact Card Grid              */
+/* ============================================ */
+.aws-compact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.compact-card {
+    background: var(--theme-card-bg, #1f2e40);
+    border: 1px solid var(--theme-border, #2c3e50);
+    border-radius: 6px;
+    padding: 12px;
+    transition: all 0.2s;
+}
+
+.compact-card:hover {
+    border-color: var(--theme-accent, #ff9900);
+}
+
+.compact-date {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--theme-accent, #ff9900);
+    margin-bottom: 6px;
+}
+
+.compact-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--theme-text-primary, #ffffff);
+    margin-bottom: 6px;
+}
+
+.compact-desc {
+    font-size: 10px;
+    color: var(--theme-text-secondary, #8796a8);
+    line-height: 1.3;
+    margin-bottom: 8px;
+}
+
+.compact-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 8px;
+    border-top: 1px solid var(--theme-border, #2c3e50);
+}
+
+/* AWS Badges */
+.aws-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.aws-badge-completed {
+    background: #10b981;
+    color: #1a2b3e;
+}
+
+.aws-badge-current {
+    background: var(--theme-accent, #ff9900);
+    color: #1a2b3e;
+}
+
+.aws-badge-upcoming {
+    background: #5a6e85;
+    color: #ffffff;
+}
+
+.aws-badge-warning {
+    background: #f59e0b;
+    color: #1a2b3e;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .aws-timeline-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 16px;
+    }
+    .aws-card-header {
+        padding: 12px 16px;
+    }
+    .aws-card-body {
+        padding: 16px;
+    }
+    .aws-compact-grid {
+        grid-template-columns: 1fr;
+    }
+    .aws-horizontal-scroll {
+        overflow-x: scroll;
+    }
+    .aws-data-table {
+        font-size: 10px;
+    }
+    .aws-data-table th,
+    .aws-data-table td {
+        padding: 8px 4px;
+    }
+}

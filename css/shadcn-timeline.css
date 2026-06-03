@@ -1,0 +1,418 @@
+/* shadcn-timeline.css - All timeline styles using theme variables */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--theme-bg-gradient-start);
+    font-family: 'Inter', system-ui, sans-serif;
+    padding: 32px;
+}
+
+.timeline-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.page-header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--theme-text-primary);
+    margin-bottom: 8px;
+}
+
+.page-header p {
+    color: var(--theme-text-secondary);
+    font-size: 14px;
+}
+
+/* Timeline Grid */
+.timeline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 32px;
+}
+
+.timeline-card {
+    background: var(--theme-card-bg);
+    border-radius: 20px;
+    border: 1px solid var(--theme-border);
+    overflow: hidden;
+}
+
+.timeline-card-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--theme-border);
+    background: var(--theme-bg-gradient-start);
+}
+
+.timeline-card-header h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--theme-text-primary);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.timeline-card-body {
+    padding: 24px;
+}
+
+/* ============================================ */
+/* STYLE 1: Vertical Timeline */
+/* ============================================ */
+.vertical-timeline {
+    position: relative;
+    padding-left: 28px;
+}
+
+.vertical-timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--theme-border);
+}
+
+.vt-item {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.vt-dot {
+    position: absolute;
+    left: -24px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--theme-accent);
+    border: 2px solid var(--theme-card-bg);
+    box-shadow: 0 0 0 2px var(--theme-accent);
+}
+
+.vt-date {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--theme-accent);
+    margin-bottom: 4px;
+}
+
+.vt-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--theme-text-primary);
+    margin-bottom: 4px;
+}
+
+.vt-desc {
+    font-size: 13px;
+    color: var(--theme-text-secondary);
+    line-height: 1.4;
+}
+
+/* ============================================ */
+/* STYLE 2: Horizontal Scrolling Timeline */
+/* ============================================ */
+.horizontal-timeline {
+    display: flex;
+    overflow-x: auto;
+    gap: 24px;
+    padding-bottom: 16px;
+    scroll-snap-type: x mandatory;
+}
+
+.horizontal-timeline::-webkit-scrollbar {
+    height: 6px;
+}
+
+.horizontal-timeline::-webkit-scrollbar-track {
+    background: var(--theme-border);
+    border-radius: 10px;
+}
+
+.horizontal-timeline::-webkit-scrollbar-thumb {
+    background: var(--theme-accent);
+    border-radius: 10px;
+}
+
+.ht-item {
+    min-width: 280px;
+    background: var(--theme-card-bg);
+    border: 1px solid var(--theme-border);
+    border-radius: 16px;
+    padding: 20px;
+    scroll-snap-align: start;
+    transition: all 0.2s;
+}
+
+.ht-item:hover {
+    border-color: var(--theme-accent);
+    transform: translateY(-4px);
+}
+
+.ht-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--theme-accent);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.ht-date {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--theme-accent);
+    margin-bottom: 8px;
+}
+
+.ht-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--theme-text-primary);
+    margin-bottom: 8px;
+}
+
+/* ============================================ */
+/* STYLE 3: Compact List Timeline */
+/* ============================================ */
+.compact-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.ct-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px;
+    background: var(--theme-bg-gradient-start);
+    border-radius: 12px;
+    transition: all 0.2s;
+}
+
+.ct-item:hover {
+    background: var(--theme-border);
+}
+
+.ct-status {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.ct-status.completed {
+    background: var(--theme-status-completed);
+}
+
+.ct-status.current {
+    background: var(--theme-status-current);
+}
+
+.ct-status.upcoming {
+    background: var(--theme-status-upcoming);
+}
+
+.ct-date {
+    min-width: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--theme-text-primary);
+}
+
+.ct-content {
+    flex: 1;
+}
+
+.ct-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--theme-text-primary);
+}
+
+.ct-desc {
+    font-size: 12px;
+    color: var(--theme-text-secondary);
+}
+
+.ct-badge {
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 500;
+}
+
+/* ============================================ */
+/* STYLE 4: Milestone Cards Timeline */
+/* ============================================ */
+.milestone-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.mt-item {
+    display: flex;
+    gap: 16px;
+    position: relative;
+    padding-bottom: 24px;
+}
+
+.mt-item:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 16px;
+    top: 32px;
+    bottom: -8px;
+    width: 2px;
+    background: var(--theme-border);
+}
+
+.mt-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--theme-card-bg);
+    border: 1px solid var(--theme-border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    z-index: 1;
+}
+
+.mt-content {
+    flex: 1;
+    background: var(--theme-card-bg);
+    border: 1px solid var(--theme-border);
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.mt-date {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--theme-text-secondary);
+    margin-bottom: 4px;
+}
+
+.mt-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--theme-text-primary);
+    margin-bottom: 8px;
+}
+
+/* ============================================ */
+/* STYLE 5: Grid Card Timeline */
+/* ============================================ */
+.grid-timeline {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.gt-item {
+    background: var(--theme-card-bg);
+    border: 1px solid var(--theme-border);
+    border-radius: 16px;
+    padding: 16px;
+    transition: all 0.2s;
+}
+
+.gt-item:hover {
+    border-color: var(--theme-accent);
+    transform: translateY(-2px);
+}
+
+.gt-date {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--theme-accent);
+    margin-bottom: 8px;
+}
+
+.gt-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--theme-text-primary);
+    margin-bottom: 8px;
+}
+
+.gt-desc {
+    font-size: 12px;
+    color: var(--theme-text-secondary);
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.gt-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    border-top: 1px solid var(--theme-border);
+}
+
+/* Status Badges */
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.badge-completed {
+    background: var(--theme-status-completed);
+    color: white;
+}
+
+.badge-current {
+    background: var(--theme-status-current);
+    color: white;
+}
+
+.badge-upcoming {
+    background: var(--theme-status-upcoming);
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .timeline-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 16px;
+    }
+    .grid-timeline {
+        grid-template-columns: 1fr;
+    }
+    .timeline-card-header {
+        padding: 16px 20px;
+    }
+    .timeline-card-body {
+        padding: 20px;
+    }
+}

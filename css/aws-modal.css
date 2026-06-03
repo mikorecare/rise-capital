@@ -1,0 +1,174 @@
+/* aws-modal.css - AWS Console Modal Styles */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.modal-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-container {
+    background: var(--theme-card-bg, #1f2e40);
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 85vh;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--theme-border, #2c3e50);
+    transform: scale(0.95);
+    transition: transform 0.2s ease;
+}
+
+.modal-overlay.active .modal-container {
+    transform: scale(1);
+}
+
+.modal-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--theme-border, #2c3e50);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--theme-sidebar-bg, #1a2b3e);
+}
+
+.modal-header h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--theme-text-secondary, #ffffff);
+    margin: 0;
+}
+
+.modal-close {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 4px;
+    color: var(--theme-text-secondary, #8796a8);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--theme-text-primary, #ffffff);
+}
+
+.modal-body {
+    padding: 20px;
+    overflow-y: auto;
+    max-height: calc(85vh - 60px);
+}
+
+.modal-section {
+    margin-bottom: 20px;
+}
+
+.modal-section-title {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--theme-text-secondary, #8796a8);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.modal-info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--theme-border, #2c3e50);
+}
+
+.modal-info-label {
+    font-size: 0.8rem;
+    color: var(--theme-text-secondary, #8796a8);
+}
+
+.modal-info-value {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--theme-text-primary, #ffffff);
+}
+
+.modal-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.modal-metric-card {
+    background: var(--theme-card-bg, #1f2e40);
+    border: 1px solid var(--theme-border, #2c3e50);
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+}
+
+.modal-metric-value {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--theme-accent, #ff9900);
+}
+
+.modal-metric-label {
+    font-size: 0.65rem;
+    color: var(--theme-text-secondary, #8796a8);
+    margin-top: 4px;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.modal-btn {
+    flex: 1;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.modal-btn-primary {
+    background: var(--theme-accent, #ff9900);
+    border: none;
+    color: #1a2b3e;
+}
+
+.modal-btn-primary:hover {
+    background: var(--theme-accent-hover, #ec7211);
+}
+
+.modal-btn-secondary {
+    background: transparent;
+    border: 1px solid var(--theme-border, #2c3e50);
+    color: var(--theme-text-primary, #ffffff);
+}
+
+.modal-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.05);
+}

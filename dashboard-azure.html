@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rise Capital - Microsoft Azure Dashboard</title>
+    <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/theme-variable.css">
+    <link rel="stylesheet" href="./css/azure.css">
+    <link rel="stylesheet" href="./css/drawer.css">
+    <link rel="stylesheet" href="./css/azure-offerings.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="azure-top-nav">
+        <div class="azure-nav-left">
+            <img src="./logos/rcg-logo.png" alt="Rise Capital" class="logo-img">
+            <div class="azure-nav-item active" data-view="dashboard">Dashboard</div>
+            <div class="azure-nav-item" data-view="investments">Investments</div>
+            <div class="azure-nav-item" data-view="offerings">Offerings</div>
+            <div class="azure-nav-item" data-view="mail">Mail</div>
+            <div class="azure-nav-item" data-view="wallet">Wallet</div>
+        </div>
+        <div class="azure-user">
+            <span>john.chen@risecapital.com</span>
+            <div class="user-avatar">JC</div>
+        </div>
+    </div>
+
+    <div class="azure-main">
+        <!-- Dashboard View -->
+        <div id="dashboard-view" class="view-container active-view">
+            <div class="azure-welcome">
+                <h1>Welcome back, John</h1>
+                <p>Your portfolio is up 12.3% this quarter. Great performance!</p>
+            </div>
+
+            <div class="two-column-layout">
+                <div class="left-column">
+                    <div class="stats-cards" id="stats-cards"></div>
+                    <div class="section-title">Available Funds <a data-view="investments">View all →</a></div>
+                    <div id="dashboard-funds-grid" class="funds-grid"></div>
+                </div>
+                <div class="right-column">
+                    <div class="profile-card" id="profile-card"></div>
+                    <div class="quick-actions" id="quick-actions"></div>
+                </div>
+            </div>
+
+            <div class="tables-section">
+                <div class="table-container">
+                    <div class="table-header"><i data-lucide="receipt" style="width: 16px"></i>Recent Transactions</div>
+                    <table class="data-table"><thead><tr><th>Date</th><th>Description</th><th>Type</th><th>Amount</th><th>Status</th></tr></thead><tbody id="transactions-table-body"></tbody></table>
+                </div>
+                <div class="table-container">
+                    <div class="table-header"><i data-lucide="calendar" style="width: 16px"></i>Upcoming Milestones</div>
+                    <table class="data-table"><thead><tr><th>Project</th><th>Milestone</th><th>Expected Date</th><th>Status</th></tr></thead><tbody id="milestones-table-body"></tbody></table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Investments View -->
+        <div id="investments-view" class="view-container">
+            <button class="back-btn" onclick="showDashboard()">← Back to Dashboard</button>
+            <div class="azure-welcome" style="background: linear-gradient(135deg, #107c10, #0a5a0a)">
+                <h1>All Investments</h1>
+                <p>Browse all available Rise Capital funds</p>
+            </div>
+            <div id="all-funds-grid" class="funds-grid"></div>
+        </div>
+
+        <!-- Offerings View -->
+        <div id="offerings-view" class="view-container">
+            <button class="back-btn" onclick="showDashboard()">← Back to Dashboard</button>
+            <div class="azure-welcome" style="background: linear-gradient(135deg, #0078d4, #005a9e)">
+                <h1>Investment Offerings</h1>
+                <p>Browse all available Rise Capital investment opportunities</p>
+            </div>
+
+            <div class="azure-offerings-filter-bar">
+                <select id="category-filter" class="azure-offerings-filter-select" onchange="filterOfferings(this.value)">
+                    <option value="all">All Categories</option>
+                    <option value="Development">Development</option>
+                    <option value="Drilling">Drilling</option>
+                    <option value="Production">Production</option>
+                    <option value="Fund">Fund</option>
+                    <option value="Equipment">Equipment</option>
+                    <option value="Entry Level">Entry Level</option>
+                    <option value="Innovation">Innovation</option>
+                    <option value="Regional">Regional</option>
+                    <option value="Rework">Rework</option>
+                    <option value="Real Estate">Real Estate</option>
+                    <option value="Branded">Branded</option>
+                    <option value="Exclusive">Exclusive</option>
+                </select>
+                <input type="text" id="offerings-search" class="azure-offerings-search" placeholder="Search offerings..." onkeyup="searchOfferings()">
+                <button class="back-btn" onclick="resetOfferingsFilter()">Reset Filters</button>
+            </div>
+
+            <div id="offerings-stats" class="azure-offerings-stats"></div>
+
+            <div class="azure-offerings-container">
+                <table class="azure-offerings-table">
+                    <thead>
+                        <tr>
+                            <th>Offering Name</th>
+                            <th>Type</th>
+                            <th>Min Investment</th>
+                            <th>Target Return</th>
+                            <th>Term</th>
+                            <th>Location</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="offerings-table-body"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Mail View -->
+        <div id="mail-view" class="view-container">
+            <button class="back-btn" onclick="showDashboard()">← Back to Dashboard</button>
+            <div class="azure-welcome" style="background: linear-gradient(135deg, #0078d4, #005a9e)">
+                <h1>Mail</h1>
+                <p>Stay updated with your investment communications</p>
+            </div>
+            <div class="azure-mail-container">
+                <div class="azure-mail-toolbar">
+                    <button class="azure-mail-toolbar-btn azure-compose-btn" onclick="alert('Compose new message')"><i data-lucide="edit-3" style="width: 14px"></i> Compose</button>
+                    <button class="azure-mail-toolbar-btn" onclick="alert('Archive selected')"><i data-lucide="archive" style="width: 14px"></i> Archive</button>
+                    <button class="azure-mail-toolbar-btn" onclick="alert('Delete selected')"><i data-lucide="trash-2" style="width: 14px"></i> Delete</button>
+                    <button class="azure-mail-toolbar-btn" onclick="alert('Refresh')"><i data-lucide="refresh-cw" style="width: 14px"></i> Refresh</button>
+                </div>
+                <div id="azure-mail-list-view">
+                    <div class="azure-mail-list-header"><div></div><div></div><div>From</div><div>Subject</div><div>Date</div></div>
+                    <div id="azure-mail-list-container"></div>
+                </div>
+                <div id="azure-mail-detail-view" style="display: none"><div id="azure-mail-detail-container"></div></div>
+            </div>
+        </div>
+
+        <!-- Opportunities View -->
+        <div id="opportunities-view" class="view-container">
+            <button class="back-btn" id="back-to-investments-btn">← Back to Investments</button>
+            <div id="opp-header"></div>
+            <div id="opp-list-container"></div>
+        </div>
+
+        <!-- Timeline View -->
+        <div id="timeline-view" class="view-container">
+            <button class="back-btn" id="back-to-opp-btn">← Back to Opportunities</button>
+            <div id="timeline-header"></div>
+            <div id="timeline-list-container"></div>
+        </div>
+
+        <!-- Wallet View -->
+        <div id="wallet-view" class="view-container">
+            <button class="back-btn" onclick="showDashboard()">← Back to Dashboard</button>
+            <div class="azure-welcome" style="background: linear-gradient(135deg, #0078d4, #005a9e)">
+                <h1>Wallet</h1>
+                <p>Manage your funds and track transactions</p>
+            </div>
+            <div class="two-column-layout">
+                <div class="left-column"><div class="stats-cards" id="wallet-stats"></div></div>
+                <div class="right-column"><div class="quick-actions" id="wallet-actions"></div></div>
+            </div>
+            <div class="table-container" style="margin-top: 24px">
+                <div class="table-header">Transaction History</div>
+                <table class="data-table"><thead></tr><th>Date</th><th>Description</th><th>Type</th><th>Amount</th><th>Status</th></tr></thead><tbody id="wallet-transactions-body"></tbody></table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Drawer -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <div class="drawer" id="fundDrawer">
+        <div class="drawer-header"><h3 id="drawerTitle">Fund Details</h3><button class="drawer-close" id="closeDrawerBtn"><i data-lucide="x" style="width: 20px; height: 20px"></i></button></div>
+        <div class="drawer-content" id="drawerContent"></div>
+    </div>
+
+    <script src="./jquery/jquery.min.js"></script>
+    <script src="./js/theme-controller.js"></script>
+    <script src="./js/offerings-data.js"></script>
+    <script src="./js/azure-data.js"></script>
+    <script src="./js/azure-dashboard.js"></script>
+    <script>
+        let currentOfferingFilter = "all";
+        let currentOfferingSearch = "";
+
+        function renderOfferings() {
+            let filtered = [...offeringsData.offerings];
+            if (currentOfferingFilter !== "all") {
+                filtered = filtered.filter(o => o.category.toLowerCase() === currentOfferingFilter.toLowerCase());
+            }
+            if (currentOfferingSearch) {
+                filtered = filtered.filter(o => 
+                    o.name.toLowerCase().includes(currentOfferingSearch.toLowerCase()) ||
+                    o.type.toLowerCase().includes(currentOfferingSearch.toLowerCase())
+                );
+            }
+            const stats = {
+                total: filtered.length,
+                open: filtered.filter(o => o.status === "Open").length,
+                limited: filtered.filter(o => o.status === "Limited").length,
+                comingSoon: filtered.filter(o => o.status === "Coming Soon").length,
+            };
+            $('#offerings-stats').html(`Showing ${stats.total} offerings · ${stats.open} Open · ${stats.limited} Limited · ${stats.comingSoon} Coming Soon`);
+            $('#offerings-table-body').html(filtered.map(o => `
+                <tr onclick="openOfferingDrawer(${o.id})">
+                    <td><strong>${o.name}</strong><br><span class="azure-category-badge azure-category-${o.category.toLowerCase().replace(/ /g, '-')}">${o.category}</span>${'<'}/td>
+                    <td>${o.type}${'<'}/td>
+                    <td>${o.minInvestment}${'<'}/td>
+                    <td>${o.targetReturn}${'<'}/td>
+                    <td>${o.term}${'<'}/td>
+                    <td>${o.location}${'<'}/td>
+                    <td><span class="azure-status-badge azure-status-${o.status.toLowerCase().replace(/ /g, '-')}">${o.status}</span>${'<'}/td>
+                </table>
+            `).join(''));
+        }
+
+        function openOfferingDrawer(offeringId) {
+            const offering = offeringsData.offerings.find(o => o.id === offeringId);
+            if (!offering) return;
+            const content = `
+                <div class="drawer-section">
+                    <div class="drawer-section-title">Offering Details</div>
+                    <div class="drawer-info-row"><span class="drawer-info-label">Name</span><span class="drawer-info-value">${offering.name}</span></div>
+                    <div class="drawer-info-row"><span class="drawer-info-label">Category</span><span class="drawer-info-value">${offering.category}</span></div>
+                    <div class="drawer-info-row"><span class="drawer-info-label">Type</span><span class="drawer-info-value">${offering.type}</span></div>
+                    <div class="drawer-info-row"><span class="drawer-info-label">Status</span><span class="drawer-info-value"><span class="azure-status-badge azure-status-${offering.status.toLowerCase().replace(/ /g, '-')}">${offering.status}</span></span></div>
+                    <div class="drawer-info-row"><span class="drawer-info-label">Min Investment</span><span class="drawer-info-value">${offering.minInvestment}</span></div>
+                    <div class="drawer-info-row"><span class="drawer-info-label">Target Return</span><span class="drawer-info-value">${offering.targetReturn}</span></div>
+                    <div class="drawer-info-row"><span class="drawer-info-label">Term</span><span class="drawer-info-value">${offering.term}</span></div>
+                    <div class="drawer-info-row"><span class="drawer-info-label">Location</span><span class="drawer-info-value">${offering.location}</span></div>
+                </div>
+                <div class="drawer-actions">
+                    <button class="drawer-btn drawer-btn-primary" onclick="alert('Invest in ${offering.name}')">Invest Now</button>
+                    <button class="drawer-btn drawer-btn-secondary" onclick="closeDrawer()">Close</button>
+                </div>
+            `;
+            openDrawer(offering.name, content);
+        }
+
+        function filterOfferings(category) {
+            currentOfferingFilter = category;
+            renderOfferings();
+        }
+
+        function searchOfferings() {
+            currentOfferingSearch = $('#offerings-search').val();
+            renderOfferings();
+        }
+
+        function resetOfferingsFilter() {
+            currentOfferingFilter = "all";
+            currentOfferingSearch = "";
+            $('#category-filter').val("all");
+            $('#offerings-search').val("");
+            renderOfferings();
+        }
+
+        function showOfferingsView() {
+            showView("offerings");
+            renderOfferings();
+        }
+
+        // Override navigation to include offerings
+        $(".azure-nav-item").off("click").on("click", function() {
+            const view = $(this).data("view");
+            if (view === "dashboard") showDashboard();
+            else if (view === "investments") showInvestments();
+            else if (view === "offerings") showOfferingsView();
+            else if (view === "mail") showMailView();
+            else if (view === "wallet") showWallet();
+        });
+
+        // Additional initialization for profile and static content
+        $(document).ready(function () {
+            const p = azureData.portfolio;
+            $("#stats-cards").html(`
+                <div class="stat-card"><div class="label">Total Portfolio</div><div class="value">${p.totalValue}</div><div class="trend up">↑ ${p.trend} from last month</div></div>
+                <div class="stat-card"><div class="label">Active Funds</div><div class="value">${p.activeFunds}</div><div class="trend up">↑ 2 this quarter</div></div>
+                <div class="stat-card"><div class="label">Avg. Return (IRR)</div><div class="value">${p.avgReturn}</div><div class="trend up">↑ 3.2% above benchmark</div></div>
+                <div class="stat-card"><div class="label">Wallet Balance</div><div class="value">${p.walletBalance}</div><div class="trend">Available to invest</div></div>
+            `);
+
+            const u = azureData.user;
+            $("#profile-card").html(`
+                <div class="profile-header"><div class="profile-avatar"><i data-lucide="user" style="width: 28px; height: 28px"></i></div><div class="profile-info"><h3>${u.name}</h3><p>${u.role}</p></div></div>
+                <div class="profile-detail"><div class="label">Investor Since</div><div class="value">${u.since}</div></div>
+                <div class="profile-detail"><div class="label">Risk Profile</div><div class="value"><span class="risk-badge">${u.riskProfile}</span></div></div>
+                <div class="profile-detail"><div class="label">Total Invested</div><div class="value">${u.totalInvested}</div></div>
+                <div class="profile-detail"><div class="label">Total Returns</div><div class="value">${u.totalReturns}</div></div>
+            `);
+
+            $("#quick-actions").html(`
+                <h4>Quick Actions</h4>
+                <button class="action-btn" onclick="alert('Deposit flow would open here')"><i data-lucide="plus-circle" style="width: 18px"></i> Add Funds</button>
+                <button class="action-btn" onclick="alert('Withdrawal flow would open here')"><i data-lucide="minus-circle" style="width: 18px"></i> Withdraw Funds</button>
+                <button class="action-btn" onclick="alert('Document upload would open here')"><i data-lucide="file-text" style="width: 18px"></i> Upload Documents</button>
+                <button class="action-btn" onclick="alert('Schedule meeting would open here')"><i data-lucide="calendar" style="width: 18px"></i> Schedule Review</button>
+            `);
+
+            const w = azureData.wallet;
+            $("#wallet-stats").html(`
+                <div class="stat-card"><div class="label">Total Balance</div><div class="value">${w.balance}</div></div>
+                <div class="stat-card"><div class="label">Available</div><div class="value">${w.available}</div></div>
+                <div class="stat-card"><div class="label">Invested</div><div class="value">${w.invested}</div></div>
+                <div class="stat-card"><div class="label">Pending</div><div class="value">${w.pending}</div></div>
+            `);
+
+            $("#wallet-actions").html(`
+                <h4>Quick Actions</h4>
+                <button class="action-btn" onclick="alert('Deposit')"><i data-lucide="plus-circle" style="width: 18px"></i> Add Funds</button>
+                <button class="action-btn" onclick="alert('Withdraw')"><i data-lucide="minus-circle" style="width: 18px"></i> Withdraw Funds</button>
+            `);
+
+            lucide.createIcons();
+        });
+
+        // Make functions global
+        window.openOfferingDrawer = openOfferingDrawer;
+        window.filterOfferings = filterOfferings;
+        window.searchOfferings = searchOfferings;
+        window.resetOfferingsFilter = resetOfferingsFilter;
+    </script>
+</body>
+</html>

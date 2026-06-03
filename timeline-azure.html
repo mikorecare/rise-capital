@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Azure Fluent Timeline - Rise Capital</title>
+    <link rel="stylesheet" href="./bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/theme-variable.css" />
+    <link rel="stylesheet" href="./css/azure-timeline.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <div class="page-header">
+      <h1>Rise Capital - Investment Timeline</h1>
+      <p>
+        Track your portfolio milestones and project progress across all funds
+      </p>
+    </div>
+
+    <div class="timeline-grid">
+      <!-- STYLE 1: Fluent Vertical Timeline -->
+      <div class="fluent-card">
+        <div class="card-header">
+          <h2><i data-lucide="align-justify"></i> Vertical Timeline</h2>
+        </div>
+        <div class="card-body">
+          <div class="fluent-vertical-timeline">
+            <div class="fv-item">
+              <div class="fv-dot"></div>
+              <div class="fv-date">March 15, 2025</div>
+              <div class="fv-title">Rise Energy Fund I - Project Kickoff</div>
+              <div class="fv-desc">
+                Initial planning and team assembly for Permian Basin
+                acquisition. $50M commitment secured.
+              </div>
+              <div class="fv-metrics">
+                <span
+                  ><i
+                    data-lucide="dollar-sign"
+                    style="width: 12px; display: inline"
+                  ></i>
+                  $50M Commitment</span
+                >
+                <span
+                  ><i
+                    data-lucide="users"
+                    style="width: 12px; display: inline"
+                  ></i>
+                  12 Team Members</span
+                >
+              </div>
+              <span class="badge badge-completed">Completed</span>
+            </div>
+            <div class="fv-item">
+              <div class="fv-dot"></div>
+              <div class="fv-date">April 10, 2025</div>
+              <div class="fv-title">Due Diligence - GreenTech Ventures</div>
+              <div class="fv-desc">
+                Technical and financial review of solar farm portfolio. 250MW
+                capacity across 3 states.
+              </div>
+              <div class="fv-metrics">
+                <span
+                  ><i
+                    data-lucide="battery"
+                    style="width: 12px; display: inline"
+                  ></i>
+                  250MW Capacity</span
+                >
+                <span
+                  ><i
+                    data-lucide="file-text"
+                    style="width: 12px; display: inline"
+                  ></i>
+                  15 Docs Reviewed</span
+                >
+              </div>
+              <span class="badge badge-current">In Progress</span>
+            </div>
+            <div class="fv-item">
+              <div class="fv-dot"></div>
+              <div class="fv-date">May 20, 2025</div>
+              <div class="fv-title">
+                Regulatory Approval - Infrastructure Alpha
+              </div>
+              <div class="fv-desc">
+                State and federal permitting for Midwest Toll Road concession.
+                50-year agreement pending.
+              </div>
+              <div class="fv-metrics">
+                <span
+                  ><i
+                    data-lucide="route"
+                    style="width: 12px; display: inline"
+                  ></i>
+                  150 Miles</span
+                >
+                <span
+                  ><i
+                    data-lucide="scale"
+                    style="width: 12px; display: inline"
+                  ></i>
+                  3 Agencies</span
+                >
+              </div>
+              <span class="badge badge-upcoming">Upcoming</span>
+            </div>
+            <div class="fv-item">
+              <div class="fv-dot"></div>
+              <div class="fv-date">June 30, 2025</div>
+              <div class="fv-title">AI Innovation Fund - Series A Launch</div>
+              <div class="fv-desc">
+                Final closing and first investment deployment into AI analytics
+                platform.
+              </div>
+              <div class="fv-metrics">
+                <span
+                  ><i
+                    data-lucide="microchip"
+                    style="width: 12px; display: inline"
+                  ></i>
+                  3 Portfolio Companies</span
+                >
+                <span
+                  ><i
+                    data-lucide="target"
+                    style="width: 12px; display: inline"
+                  ></i>
+                  $75M Target</span
+                >
+              </div>
+              <span class="badge badge-upcoming">Upcoming</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STYLE 2: Fluent Horizontal Scrolling -->
+      <div class="fluent-card">
+        <div class="card-header">
+          <h2><i data-lucide="scroll"></i> Horizontal Timeline</h2>
+        </div>
+        <div class="card-body">
+          <div class="fluent-horizontal">
+            <div class="fh-card">
+              <div class="fh-icon">
+                <i data-lucide="rocket" style="width: 22px"></i>
+              </div>
+              <div class="fh-date">Q1 2025</div>
+              <div class="fh-title">Rise Energy Fund I</div>
+              <div class="fh-desc">
+                Permian Basin acquisition completed. First production expected
+                June 2025.
+              </div>
+              <div class="fh-progress">
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 100%"></div>
+                </div>
+                <div style="font-size: 11px; margin-top: 6px">
+                  100% Complete
+                </div>
+              </div>
+            </div>
+            <div class="fh-card">
+              <div class="fh-icon">
+                <i data-lucide="sun" style="width: 22px"></i>
+              </div>
+              <div class="fh-date">Q2 2025</div>
+              <div class="fh-title">GreenTech Ventures</div>
+              <div class="fh-desc">
+                Solar farm construction underway. 80MW operational by Q3.
+              </div>
+              <div class="fh-progress">
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 65%"></div>
+                </div>
+                <div style="font-size: 11px; margin-top: 6px">65% Complete</div>
+              </div>
+            </div>
+            <div class="fh-card">
+              <div class="fh-icon">
+                <i data-lucide="building" style="width: 22px"></i>
+              </div>
+              <div class="fh-date">Q3 2025</div>
+              <div class="fh-title">Infrastructure Alpha</div>
+              <div class="fh-desc">
+                Toll road concession closing. 50-year revenue stream begins.
+              </div>
+              <div class="fh-progress">
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 40%"></div>
+                </div>
+                <div style="font-size: 11px; margin-top: 6px">40% Complete</div>
+              </div>
+            </div>
+            <div class="fh-card">
+              <div class="fh-icon">
+                <i data-lucide="microchip" style="width: 22px"></i>
+              </div>
+              <div class="fh-date">Q4 2025</div>
+              <div class="fh-title">AI Innovation Fund</div>
+              <div class="fh-desc">
+                Series A closing. 4 portfolio companies selected.
+              </div>
+              <div class="fh-progress">
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 25%"></div>
+                </div>
+                <div style="font-size: 11px; margin-top: 6px">25% Complete</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STYLE 3: Fluent Compact Table -->
+      <div class="fluent-card">
+        <div class="card-header">
+          <h2><i data-lucide="list"></i> Compact Timeline</h2>
+        </div>
+        <div class="card-body">
+          <table class="fluent-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Fund / Project</th>
+                <th>Milestone</th>
+                <th>Status</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Mar 15, 2025</td>
+                <td><strong>Rise Energy I</strong></td>
+                <td>Project Kickoff</td>
+                <td><span class="table-status badge-completed">Done</span></td>
+                <td>$50M</td>
+              </tr>
+              <tr>
+                <td>Apr 10, 2025</td>
+                <td><strong>GreenTech</strong></td>
+                <td>Due Diligence</td>
+                <td><span class="table-status badge-current">Active</span></td>
+                <td>$35M</td>
+              </tr>
+              <tr>
+                <td>Apr 28, 2025</td>
+                <td><strong>Healthcare Opp</strong></td>
+                <td>KYC Review</td>
+                <td><span class="table-status badge-current">Active</span></td>
+                <td>$45M</td>
+              </tr>
+              <tr>
+                <td>May 20, 2025</td>
+                <td><strong>Infrastructure</strong></td>
+                <td>Regulatory Approval</td>
+                <td>
+                  <span class="table-status badge-upcoming">Pending</span>
+                </td>
+                <td>$120M</td>
+              </tr>
+              <tr>
+                <td>Jun 15, 2025</td>
+                <td><strong>AI Innovation</strong></td>
+                <td>Series A Closing</td>
+                <td>
+                  <span class="table-status badge-upcoming">Pending</span>
+                </td>
+                <td>$75M</td>
+              </tr>
+              <tr>
+                <td>Jul 1, 2025</td>
+                <td><strong>REIT Fund</strong></td>
+                <td>Distribution</td>
+                <td>
+                  <span class="table-status badge-upcoming">Pending</span>
+                </td>
+                <td>$200M</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- STYLE 4: Fluent Milestone Stepper -->
+      <div class="fluent-card">
+        <div class="card-header">
+          <h2><i data-lucide="award"></i> Milestone Stepper</h2>
+        </div>
+        <div class="card-body">
+          <div class="fluent-stepper">
+            <div class="step-item">
+              <div class="step-icon">
+                <i
+                  data-lucide="check-circle"
+                  style="width: 18px; color: var(--theme-status-completed)"
+                ></i>
+              </div>
+              <div class="step-content">
+                <div class="step-date">Completed - March 2025</div>
+                <div class="step-title">Fund Launch: Rise Energy I</div>
+                <div class="step-desc">
+                  Successfully raised $50M from 42 investors. First closing
+                  completed.
+                </div>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-icon">
+                <i
+                  data-lucide="loader"
+                  style="width: 18px; color: var(--theme-status-current)"
+                ></i>
+              </div>
+              <div class="step-content">
+                <div class="step-date">In Progress - April 2025</div>
+                <div class="step-title">Due Diligence: GreenTech Solar</div>
+                <div class="step-desc">
+                  Reviewing 250MW solar portfolio across California, Texas,
+                  Florida. Expected completion May 15.
+                </div>
+              </div>
+            </div>
+            <div class="step-item">
+              <div class="step-icon">
+                <i
+                  data-lucide="clock"
+                  style="width: 18px; color: var(--theme-status-upcoming)"
+                ></i>
+              </div>
+              <div class="step-content">
+                <div class="step-date">Upcoming - June 2025</div>
+                <div class="step-title">Regulatory Approval: Toll Road</div>
+                <div class="step-desc">
+                  Final permits from DOT expected. 50-year concession agreement
+                  ready for signing.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STYLE 5: Fluent Grid Cards -->
+      <div class="fluent-card">
+        <div class="card-header">
+          <h2><i data-lucide="layout-grid"></i> Grid Timeline</h2>
+        </div>
+        <div class="card-body">
+          <div class="fluent-grid">
+            <div class="grid-card">
+              <div class="grid-date">March 2025</div>
+              <div class="grid-title">Rise Energy Fund I</div>
+              <div class="grid-desc">
+                Permian Basin acquisition completed. 5,000 boe/d production.
+              </div>
+              <div class="grid-footer">
+                <span class="badge badge-completed">Completed</span>
+                <i
+                  data-lucide="trending-up"
+                  style="width: 16px; color: var(--theme-status-completed)"
+                ></i>
+              </div>
+            </div>
+            <div class="grid-card">
+              <div class="grid-date">April 2025</div>
+              <div class="grid-title">GreenTech Ventures</div>
+              <div class="grid-desc">
+                Solar farm construction: 80MW operational, 170MW in development.
+              </div>
+              <div class="grid-footer">
+                <span class="badge badge-current">65% Complete</span>
+                <i
+                  data-lucide="sun"
+                  style="width: 16px; color: var(--theme-status-current)"
+                ></i>
+              </div>
+            </div>
+            <div class="grid-card">
+              <div class="grid-date">May 2025</div>
+              <div class="grid-title">Healthcare Opportunities</div>
+              <div class="grid-desc">
+                KYC/AML verification completed. Fundraising underway.
+              </div>
+              <div class="grid-footer">
+                <span class="badge badge-current">In Review</span>
+                <i data-lucide="heart" style="width: 16px"></i>
+              </div>
+            </div>
+            <div class="grid-card">
+              <div class="grid-date">June 2025</div>
+              <div class="grid-title">Infrastructure Alpha</div>
+              <div class="grid-desc">
+                Toll road concession closing. First revenue expected.
+              </div>
+              <div class="grid-footer">
+                <span class="badge badge-upcoming">Upcoming</span>
+                <i data-lucide="building" style="width: 16px"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./js/theme-controller.js"></script>
+    <script>
+      lucide.createIcons();
+
+      // Listen for theme changes from parent iframe
+      window.addEventListener("message", function (event) {
+        if (event.data && event.data.type === "changeTheme") {
+          if (window.applyTheme) {
+            window.applyTheme(event.data.theme);
+          }
+        }
+      });
+
+      // Apply saved theme on load
+      const savedTheme = localStorage.getItem("riseCapitalTheme") || "default";
+      if (window.applyTheme) {
+        window.applyTheme(savedTheme);
+      }
+
+      // Re-render Lucide icons after theme change (fixes icon colors)
+      document.addEventListener("themeChanged", function () {
+        lucide.createIcons();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rise Capital - System Dashboard</title>
+    <link rel="stylesheet" href="./bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/theme-variable.css" />
+    <link rel="stylesheet" href="./css/bootstrap-modal.css" />
+    <link rel="stylesheet" href="./css/bootstrap.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <!-- Top Navigation - Classic VB / Airport Style -->
+    <div class="top-navbar">
+      <div class="top-nav-left">
+        <img src="./logos/rcg-logo.png" alt="Rise Capital" class="logo-img" />
+        <div class="nav-menu">
+          <div class="nav-item active" data-view="dashboard">DASHBOARD</div>
+          <div class="nav-item" data-view="funds">FUNDS</div>
+          <div class="nav-item" data-view="wallet">WALLET</div>
+        </div>
+      </div>
+      <div class="top-nav-right">
+        <span class="user-info">john.chen@risecapital.com</span>
+      </div>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="main-layout">
+    
+      <!-- Main Content -->
+      <div class="content">
+        <!-- Dashboard View -->
+        <div id="dashboard-view" class="view-container active-view">
+          <!-- Stats Bar -->
+          <div class="stats-bar">
+            <div class="stat-box">
+              <div class="stat-label">Total Portfolio</div>
+              <div class="stat-value">$280.5M</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-label">Active Funds</div>
+              <div class="stat-value">6</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-label">Avg. Return</div>
+              <div class="stat-value">22.4%</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-label">Wallet</div>
+              <div class="stat-value">$45,250</div>
+            </div>
+          </div>
+
+          <!-- Two Column Layout -->
+          <div class="two-column">
+            <div class="two-column-left">
+              <div class="section-header">AVAILABLE FUNDS</div>
+              <div id="dashboard-funds-grid" class="cards-grid"></div>
+            </div>
+            <div class="two-column-right">
+              <!-- Profile Box -->
+              <div class="profile-box">
+                <div class="profile-header">
+                  <div class="profile-avatar">JC</div>
+                  <div class="profile-info">
+                    <h4 class="section-header">John Chen</h4>
+                    <p>Portfolio Manager</p>
+                  </div>
+                </div>
+                <div class="profile-row">
+                  <span class="profile-label">Investor Since</span
+                  ><span class="profile-label">Jan 2020</span>
+                </div>
+                <div class="profile-row">
+                  <span class="profile-label">Risk Profile</span
+                  ><span class="profile-label">Moderate-Aggressive</span>
+                </div>
+                <div class="profile-row">
+                  <span class="profile-label">Total Invested</span
+                  ><span class="profile-label">$12.45M</span>
+                </div>
+                <div class="profile-row">
+                  <span class="profile-label">Total Returns</span
+                  ><span class="profile-label">$2.89M (23.2%)</span>
+                </div>
+              </div>
+
+              <!-- Quick Actions -->
+              <div class="quick-actions">
+                <h5>QUICK ACTIONS</h5>
+                <button class="action-btn" onclick="alert('Deposit')">
+                  <i data-lucide="plus-circle" style="width: 14px"></i> Add
+                  Funds
+                </button>
+                <button class="action-btn" onclick="alert('Withdraw')">
+                  <i data-lucide="minus-circle" style="width: 14px"></i>
+                  Withdraw
+                </button>
+                <button class="action-btn" onclick="alert('Documents')">
+                  <i data-lucide="file-text" style="width: 14px"></i> Upload
+                  Docs
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Transactions Table -->
+          <div class="section-header" style="margin-top: 20px">
+            RECENT TRANSACTIONS
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="transactions-table-body"></tbody>
+          </table>
+        </div>
+
+        <!-- Funds View -->
+        <div id="funds-view" class="view-container">
+          <div class="section-header">ALL FUNDS</div>
+          <div id="all-funds-grid" class="cards-grid"></div>
+        </div>
+
+        <!-- Opportunities View -->
+        <div id="opportunities-view" class="view-container">
+          <button class="back-btn" id="back-to-funds-btn">
+            ← Back to Funds
+          </button>
+          <div id="opp-header"></div>
+          <div id="opp-list-container"></div>
+        </div>
+
+        <!-- Timeline View -->
+        <div id="timeline-view" class="view-container">
+          <button class="back-btn" id="back-to-opp-btn">
+            ← Back to Opportunities
+          </button>
+          <div id="timeline-header"></div>
+          <div id="timeline-list-container"></div>
+        </div>
+
+        <!-- Wallet View -->
+        <div id="wallet-view" class="view-container">
+          <div class="stats-bar">
+            <div class="stat-box">
+              <div class="stat-label">Total Balance</div>
+              <div class="stat-value">$45,250</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-label">Available</div>
+              <div class="stat-value">$45,250</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-label">Invested</div>
+              <div class="stat-value">$280.5M</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-label">Pending</div>
+              <div class="stat-value">$0</div>
+            </div>
+          </div>
+          <div class="section-header">TRANSACTION HISTORY</div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="transactions-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3 id="modalTitle">Details</h3>
+          <button class="modal-close" id="closeModalBtn">×</button>
+        </div>
+        <div class="modal-body" id="modalBody"></div>
+      </div>
+    </div>
+
+    <script src="./jquery/jquery.min.js"></script>
+    <script src="./js/theme-controller.js"></script>
+    <script src="./js/bootstrap-data.js"></script>
+    <script src="./js/bootstrap-dashboard.js"></script>
+    <script>
+      // Additional initialization for top nav and transactions table
+      $(document).ready(function () {
+        // Render transactions table
+        function renderTransactionsTable() {
+          $("#transactions-table-body").html(
+            bootstrapData.transactions
+              .map(
+                (t) => `
+                    <tr>
+                        <td>${t.date}</td>
+                        <td>${t.description}</td>
+                        <td>${t.type}</td>
+                        <td class="${t.amount < 0 ? "amount-negative" : "amount-positive"}">${t.amount < 0 ? "-" : "+"}$${Math.abs(t.amount).toLocaleString()}</td>
+                        <td><span class="status-badge completed">${t.status}</span></td>
+                    </tr>
+                `,
+              )
+              .join(""),
+          );
+        }
+
+        renderTransactionsTable();
+
+        // Top navigation
+        $(".nav-item").on("click", function () {
+          const view = $(this).data("view");
+          $(".nav-item").removeClass("active");
+          $(this).addClass("active");
+          $(".sidebar-item").removeClass("active");
+          $(`.sidebar-item[data-view="${view}"]`).addClass("active");
+
+          if (view === "dashboard") {
+            renderDashboardFunds();
+            showView("dashboard");
+          } else if (view === "funds") {
+            renderAllFunds();
+            showView("funds");
+          } else if (view === "wallet") {
+            renderTransactions();
+            showView("wallet");
+          }
+        });
+
+        lucide.createIcons();
+      });
+    </script>
+  </body>
+</html>

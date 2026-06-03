@@ -1,0 +1,446 @@
+  /* ============================================ */
+      /* MICROSOFT FLUENT 2 DESIGN SYSTEM            */
+      /* Azure Portal - Timeline Components          */
+      /* ============================================ */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--theme-bg-gradient-start, #f0f4f9);
+        font-family:
+          "Segoe UI",
+          -apple-system,
+          BlinkMacSystemFont,
+          Roboto,
+          "Helvetica Neue",
+          sans-serif;
+        padding: 32px;
+      }
+
+      /* Page Header - Fluent Typography */
+      .page-header {
+        margin-bottom: 32px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid var(--theme-border, #e0e4e9);
+      }
+
+      .page-header h1 {
+        font-size: 24px;
+        font-weight: 600;
+        color: var(--theme-text-primary, #1f1f1f);
+        margin-bottom: 4px;
+      }
+
+      .page-header p {
+        font-size: 14px;
+        color: var(--theme-text-secondary, #5c5e63);
+      }
+
+      /* Timeline Grid - Fluent Grid System */
+      .timeline-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+        gap: 24px;
+      }
+
+      /* Fluent Cards */
+      .fluent-card {
+        background: var(--theme-card-bg, #ffffff);
+        border: 1px solid var(--theme-border, #e0e4e9);
+        border-radius: 8px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+        overflow: hidden;
+        transition: box-shadow 0.2s;
+      }
+
+      .fluent-card:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+
+      .card-header {
+        padding: 16px 20px;
+        border-bottom: 1px solid var(--theme-border, #e0e4e9);
+        background: var(--theme-bg-gradient-start, #f8f9fa);
+      }
+
+      .card-header h2 {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--theme-text-primary, #1f1f1f);
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .card-body {
+        padding: 20px;
+      }
+
+      /* ============================================ */
+      /* STYLE 1: Fluent Vertical Timeline           */
+      /* ============================================ */
+      .fluent-vertical-timeline {
+        position: relative;
+        padding-left: 28px;
+      }
+
+      .fluent-vertical-timeline::before {
+        content: "";
+        position: absolute;
+        left: 8px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--theme-border, #e0e4e9);
+      }
+
+      .fv-item {
+        position: relative;
+        margin-bottom: 28px;
+      }
+
+      .fv-dot {
+        position: absolute;
+        left: -24px;
+        top: 4px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--theme-accent, #0078d4);
+        border: 2px solid var(--theme-card-bg, #ffffff);
+        box-shadow: 0 0 0 2px var(--theme-accent, #0078d4);
+      }
+
+      .fv-date {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--theme-accent, #0078d4);
+        margin-bottom: 6px;
+      }
+
+      .fv-title {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--theme-text-primary, #1f1f1f);
+        margin-bottom: 6px;
+      }
+
+      .fv-desc {
+        font-size: 13px;
+        color: var(--theme-text-secondary, #5c5e63);
+        line-height: 1.5;
+        margin-bottom: 8px;
+      }
+
+      .fv-metrics {
+        display: flex;
+        gap: 16px;
+        font-size: 12px;
+        color: var(--theme-text-secondary, #5c5e63);
+        margin-top: 8px;
+      }
+
+      /* ============================================ */
+      /* STYLE 2: Fluent Horizontal Scrolling        */
+      /* ============================================ */
+      .fluent-horizontal {
+        display: flex;
+        overflow-x: auto;
+        gap: 16px;
+        padding-bottom: 16px;
+        scroll-snap-type: x mandatory;
+      }
+
+      .fluent-horizontal::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      .fluent-horizontal::-webkit-scrollbar-track {
+        background: var(--theme-border, #e0e4e9);
+        border-radius: 4px;
+      }
+
+      .fluent-horizontal::-webkit-scrollbar-thumb {
+        background: var(--theme-accent, #0078d4);
+        border-radius: 4px;
+      }
+
+      .fh-card {
+        min-width: 320px;
+        background: var(--theme-card-bg, #ffffff);
+        border: 1px solid var(--theme-border, #e0e4e9);
+        border-radius: 8px;
+        padding: 20px;
+        scroll-snap-align: start;
+        transition: all 0.2s;
+      }
+
+      .fh-card:hover {
+        border-color: var(--theme-accent, #0078d4);
+        transform: translateY(-2px);
+      }
+
+      .fh-icon {
+        width: 44px;
+        height: 44px;
+        background: rgba(0, 120, 212, 0.1);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+      }
+
+      .fh-icon i {
+        color: var(--theme-accent, #0078d4);
+      }
+
+      .fh-date {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--theme-accent, #0078d4);
+        margin-bottom: 8px;
+      }
+
+      .fh-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--theme-text-primary, #1f1f1f);
+        margin-bottom: 8px;
+      }
+
+      .fh-desc {
+        font-size: 13px;
+        color: var(--theme-text-secondary, #5c5e63);
+        margin-bottom: 12px;
+        line-height: 1.4;
+      }
+
+      .fh-progress {
+        margin-top: 12px;
+      }
+
+      .progress-bar {
+        height: 4px;
+        background: var(--theme-border, #e0e4e9);
+        border-radius: 2px;
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        width: 65%;
+        height: 100%;
+        background: var(--theme-accent, #0078d4);
+        border-radius: 2px;
+      }
+
+      /* ============================================ */
+      /* STYLE 3: Fluent Compact Table Timeline      */
+      /* ============================================ */
+      .fluent-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .fluent-table th {
+        text-align: left;
+        padding: 12px 8px;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--theme-text-secondary, #5c5e63);
+        border-bottom: 1px solid var(--theme-border, #e0e4e9);
+      }
+
+      .fluent-table td {
+        padding: 14px 8px;
+        font-size: 13px;
+        color: var(--theme-text-primary, #1f1f1f);
+        border-bottom: 1px solid var(--theme-border, #e0e4e9);
+      }
+
+      .table-status {
+        display: inline-block;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 11px;
+        font-weight: 500;
+      }
+
+      /* ============================================ */
+      /* STYLE 4: Fluent Milestone Stepper           */
+      /* ============================================ */
+      .fluent-stepper {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .step-item {
+        display: flex;
+        gap: 16px;
+        position: relative;
+        padding-bottom: 24px;
+      }
+
+      .step-item:not(:last-child)::before {
+        content: "";
+        position: absolute;
+        left: 18px;
+        top: 32px;
+        bottom: -8px;
+        width: 2px;
+        background: var(--theme-border, #e0e4e9);
+      }
+
+      .step-icon {
+        width: 38px;
+        height: 38px;
+        background: var(--theme-card-bg, #ffffff);
+        border: 1px solid var(--theme-border, #e0e4e9);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        z-index: 1;
+      }
+
+      .step-content {
+        flex: 1;
+        background: var(--theme-bg-gradient-start, #f8f9fa);
+        border-radius: 8px;
+        padding: 16px;
+      }
+
+      .step-date {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--theme-text-secondary, #5c5e63);
+        margin-bottom: 4px;
+      }
+
+      .step-title {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--theme-text-primary, #1f1f1f);
+        margin-bottom: 6px;
+      }
+
+      .step-desc {
+        font-size: 12px;
+        color: var(--theme-text-secondary, #5c5e63);
+        line-height: 1.4;
+      }
+
+      /* ============================================ */
+      /* STYLE 5: Fluent Grid Cards                  */
+      /* ============================================ */
+      .fluent-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+
+      .grid-card {
+        background: var(--theme-card-bg, #ffffff);
+        border: 1px solid var(--theme-border, #e0e4e9);
+        border-radius: 8px;
+        padding: 16px;
+        transition: all 0.2s;
+      }
+
+      .grid-card:hover {
+        border-color: var(--theme-accent, #0078d4);
+      }
+
+      .grid-date {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--theme-accent, #0078d4);
+        margin-bottom: 8px;
+      }
+
+      .grid-title {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--theme-text-primary, #1f1f1f);
+        margin-bottom: 8px;
+      }
+
+      .grid-desc {
+        font-size: 12px;
+        color: var(--theme-text-secondary, #5c5e63);
+        line-height: 1.4;
+        margin-bottom: 12px;
+      }
+
+      .grid-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 12px;
+        border-top: 1px solid var(--theme-border, #e0e4e9);
+      }
+
+      /* Badges */
+      .badge {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-size: 11px;
+        font-weight: 500;
+      }
+
+      .badge-completed {
+        background: var(--theme-status-completed, #107c10);
+        color: white;
+      }
+
+      .badge-current {
+        background: var(--theme-status-current, #0078d4);
+        color: white;
+      }
+
+      .badge-upcoming {
+        background: var(--theme-status-upcoming, #5c5e63);
+        color: white;
+      }
+
+      .badge-warning {
+        background: #ff8c00;
+        color: white;
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        body {
+          padding: 20px;
+        }
+        .timeline-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+        .fluent-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 16px;
+        }
+        .card-header {
+          padding: 12px 16px;
+        }
+        .card-body {
+          padding: 16px;
+        }
+        .fh-card {
+          min-width: 280px;
+        }
+      }
