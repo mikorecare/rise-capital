@@ -348,3 +348,93 @@ iframe {
         padding: 12px;
     }
 }
+/* Theme Changer - Top Right */
+#rise-theme-controller {
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    bottom: auto !important;
+    left: auto !important;
+    z-index: 99999;
+}
+
+#rise-theme-trigger {
+    width: 48px !important;
+    height: 48px !important;
+}
+
+#rise-theme-trigger img {
+    width: 24px !important;
+    height: 24px !important;
+}
+
+/* Theme Panel - drops down from button */
+#rise-theme-panel {
+    position: absolute !important;
+    top: 60px !important;
+    bottom: auto !important;
+    right: 0 !important;
+    left: auto !important;
+}
+
+/* Floating Controls Container - Bottom Right for Chat only */
+.floating-controls {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 99999;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Remove conflicting positioning from theme toggler in index.css */
+#color-theme-toggler {
+    position: static;
+}
+
+#color-theme-btn {
+    width: 52px;
+    height: 52px;
+    background: var(--theme-accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    font-size: 24px;
+    transition: transform 0.2s;
+}
+
+#color-theme-btn:hover {
+    transform: scale(1.05);
+}
+
+#color-theme-menu {
+    position: absolute;
+    bottom: 64px;
+    right: 0;
+    background: var(--theme-card-bg);
+    border-radius: 16px;
+    padding: 10px;
+    min-width: 170px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--theme-border);
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.color-option {
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: var(--theme-text-primary);
+    transition: background 0.2s;
+}
+
+.color-option:hover {
+    background: var(--theme-border);
+}

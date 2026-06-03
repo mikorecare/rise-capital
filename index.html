@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/theme-variable.css" />
     <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/chatbot.css" />
     <script src="https://unpkg.com/lucide@latest"></script>
   </head>
   <body>
@@ -75,20 +76,65 @@
       </div>
     </div>
 
-    <!-- FLOATING COLOR THEME TOGGLER -->
-    <div id="color-theme-toggler">
-      <div id="color-theme-btn">🎨</div>
-      <div id="color-theme-menu">
-        <div class="color-option" data-theme="default">🔵 Default</div>
-        <div class="color-option" data-theme="aws">🟠 AWS Orange</div>
-        <div class="color-option" data-theme="azure">🔷 Azure Blue</div>
-        <div class="color-option" data-theme="forest">🌲 Forest</div>
-        <div class="color-option" data-theme="dark">🌙 Dark</div>
-        <div class="color-option" data-theme="ocean">🌊 Ocean</div>
+    <!-- FLOATING CONTROLS (Theme left, Chat right) -->
+    <div class="floating-controls">
+      <!-- THEME BUTTON - will be injected here -->
+      <div id="theme-button-container"></div>
+
+      <!-- CHATBOT -->
+      <div id="chatbot-toggler">
+        <div id="chatbot-btn" onclick="toggleChatbot()">
+          <div class="chatbot-pulse"></div>
+          <i
+            data-lucide="message-circle"
+            style="width: 28px; height: 28px; color: white"
+          ></i>
+        </div>
+        <div id="chatbot-window" class="chatbot-window">
+          <div class="chatbot-header" onclick="closeChatbot()">
+            <h4>
+              <i data-lucide="bot" style="width: 16px"></i> Rise Assistant
+            </h4>
+            <button class="chatbot-close">
+              <i data-lucide="x" style="width: 16px"></i>
+            </button>
+          </div>
+          <div class="chatbot-messages" id="chatbot-messages"></div>
+          <div class="chatbot-suggestions" id="chatbot-suggestions"></div>
+          <div class="chatbot-input-area">
+            <input
+              type="text"
+              id="chatbot-input"
+              class="chatbot-input"
+              placeholder="Ask me anything..."
+            />
+            <button class="chatbot-send" onclick="sendMessage()">
+              <i data-lucide="send" style="width: 16px"></i>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
 
     <script src="./js/theme-controller.js"></script>
+    <script src="./js/chatbot.js"></script>
+    <script>
+      // Wait for DOM to be fully loaded
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize theme button
+        if (typeof initThemeButton === "function") {
+          initThemeButton("theme-button-container");
+        } else {
+          console.error("initThemeButton not found");
+        }
+
+        // Initialize chatbot
+        if (typeof initChatbot === "function") {
+          initChatbot(currentDashboard);
+          updateSuggestions();
+        }
+      });
+    </script>
     <script>
       const iframe = document.getElementById("dashboard-iframe");
       const windowTitle = document.getElementById("window-title");
@@ -111,7 +157,7 @@
       };
 
       let currentDashboard = "shadcn";
-      let currentView = "dashboard"; // 'dashboard' or 'timeline'
+      let currentView = "dashboard";
 
       // Function to send theme to iframe
       function sendThemeToIframe(themeName) {
@@ -145,7 +191,10 @@
           windowTitle.textContent = displayTitle;
         }
 
-        // Wait for iframe to load then send current theme
+        if (typeof updateChatbotDashboard === "function") {
+          updateChatbotDashboard(currentDashboard);
+        }
+
         iframe.onload = function () {
           const currentTheme =
             localStorage.getItem("riseCapitalTheme") || "default";
@@ -215,31 +264,6 @@
         lucide.createIcons();
       });
 
-      // Color theme toggler
-      const colorBtn = document.getElementById("color-theme-btn");
-      const colorMenu = document.getElementById("color-theme-menu");
-
-      colorBtn.onclick = (e) => {
-        e.stopPropagation();
-        colorMenu.style.display =
-          colorMenu.style.display === "flex" ? "none" : "flex";
-      };
-
-      document.onclick = (e) => {
-        if (!colorMenu.contains(e.target) && !colorBtn.contains(e.target)) {
-          colorMenu.style.display = "none";
-        }
-      };
-
-      document.querySelectorAll(".color-option").forEach((opt) => {
-        opt.onclick = () => {
-          const theme = opt.dataset.theme;
-          if (window.applyTheme) window.applyTheme(theme);
-          colorMenu.style.display = "none";
-          sendThemeToIframe(theme);
-        };
-      });
-
       // Load saved preferences
       const savedDashboard =
         localStorage.getItem("activeDashboard") || "shadcn";
@@ -261,6 +285,32 @@
           item.classList.add("active");
         }
       });
+
+      // Initialize theme button
+      setTimeout(function () {
+        if (typeof initThemeButton === "function") {
+          initThemeButton("theme-button-container");
+        } else {
+          console.log(
+            "initThemeButton not found, creating fallback theme button",
+          );
+          // Fallback: manually create theme button if function doesn't exist
+          const container = document.getElementById("theme-button-container");
+          if (container && !container.hasChildNodes()) {
+            container.innerHTML = `
+                        <div id="fallback-theme-btn" style="width: 48px; height: 48px; background: var(--theme-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 0 12px var(--theme-accent), 0 4px 12px rgba(0,0,0,0.15);">
+                            <img src="./logos/paint.svg" alt="Theme" style="width: 24px; height: 24px; filter: brightness(0) invert(1);">
+                        </div>
+                    `;
+          }
+        }
+      }, 100);
+
+      // Initialize chatbot
+      if (typeof initChatbot === "function") {
+        initChatbot(currentDashboard);
+        updateSuggestions();
+      }
 
       // Load initial content
       loadContent();

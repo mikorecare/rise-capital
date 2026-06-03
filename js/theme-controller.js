@@ -3,7 +3,6 @@
   const themes = {
     default: {
       name: "Default Blue",
-      icon: "🔵",
       css: {
         "bg-gradient-start": "#f8fafc",
         "bg-gradient-end": "#e2e8f0",
@@ -21,7 +20,6 @@
     },
     aws: {
       name: "Modern Dark Yellow",
-      icon: "⚡",
       css: {
         "bg-gradient-start": "#1a2b3e",
         "bg-gradient-end": "#1f2e40",
@@ -39,7 +37,6 @@
     },
     azure: {
       name: "Minimalist Blue",
-      icon: "☁️",
       css: {
         "bg-gradient-start": "#ffffff",
         "bg-gradient-end": "#f0f4f9",
@@ -57,7 +54,6 @@
     },
     forest: {
       name: "Forest Green",
-      icon: "🌲",
       css: {
         "bg-gradient-start": "#e8f5e9",
         "bg-gradient-end": "#c8e6c9",
@@ -75,7 +71,6 @@
     },
     dark: {
       name: "Dark Mode",
-      icon: "🌙",
       css: {
         "bg-gradient-start": "#0f0f1a",
         "bg-gradient-end": "#1a1a2e",
@@ -93,7 +88,6 @@
     },
     ocean: {
       name: "Ocean Blue",
-      icon: "🌊",
       css: {
         "bg-gradient-start": "#e0f2fe",
         "bg-gradient-end": "#bae6fd",
@@ -110,9 +104,8 @@
       },
     },
     rise: {
-    name: "Rise Capital",
-    icon: "🏛️",
-    css: {
+      name: "Rise Capital",
+      css: {
         "bg-gradient-start": "#000000",
         "bg-gradient-end": "#000000",
         "card-bg": "#0d0d0d",
@@ -120,15 +113,15 @@
         "text-secondary": "#f5efe8",
         "sidebar-bg": "#000000",
         "sidebar-text": "#dea208",
-        "accent": "#c28c03",
+        accent: "#c28c03",
         "accent-hover": "#1b4d3e",
-        "border": "#e8e0d5",
+        border: "#e8e0d5",
         "status-completed": "#2d6a4f",
         "status-upcoming": "#9ca3af",
         "status-warning": "#d97706",
-        "status-danger": "#dc2626"
-    }
-}
+        "status-danger": "#dc2626",
+      },
+    },
   };
 
   let currentTheme = localStorage.getItem("riseCapitalTheme") || "default";
@@ -146,7 +139,6 @@
     localStorage.setItem("riseCapitalTheme", themeKey);
     currentTheme = themeKey;
 
-    // If this is an iframe, tell the parent about theme change
     if (window.parent !== window) {
       window.parent.postMessage(
         {
@@ -158,105 +150,90 @@
     }
   };
 
-  // Listen for theme changes from parent (for iframes)
   window.addEventListener("message", function (event) {
     if (event.data && event.data.type === "changeTheme") {
       window.applyTheme(event.data.theme);
     }
   });
 
-  // Apply saved theme on load
   window.applyTheme(currentTheme);
 
-  // Only inject floating button if this is the parent window (not an iframe)
-  if (window.parent === window) {
-    function injectFloatingButton() {
-      if (document.getElementById("rise-theme-controller")) return;
-
-      const html = `
-    <div id="rise-theme-controller" style="position: fixed; bottom: 24px; right: 24px; z-index: 99999;">
-        <div id="rise-theme-trigger" style="width: 56px; height: 56px; background: var(--theme-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 0 12px var(--theme-accent), 0 4px 12px rgba(0,0,0,0.15); transition: all 0.3s ease; animation: subtlePulse 2s infinite ease-in-out;">
-            <img src="./logos/paint.svg" alt="Theme" style="width: 28px; height: 28px; filter: brightness(0) invert(1);">
-        </div>
-        <div id="rise-theme-panel" style="position: absolute; bottom: 70px; right: 0; background: var(--theme-card-bg); border-radius: 16px; padding: 10px; min-width: 180px; box-shadow: 0 8px 24px rgba(0,0,0,0.2); border: 1px solid var(--theme-border); display: none; flex-direction: column; gap: 5px;">
-            ${Object.entries(themes)
-              .map(
-                ([key, t]) =>
-                  `<div class="theme-opt" data-theme="${key}" style="padding: 8px 12px; border-radius: 10px; cursor: pointer; color: var(--theme-text-primary); display: flex; align-items: center; gap: 8px;"> <span style="flex: 1;">${t.name}</span> ${currentTheme === key ? '<span style="margin-left: auto;">✓</span>' : ""}</div>`,
-              )
-              .join("")}
-        </div>
-    </div>
-`;
-
-      const style = document.createElement("style");
-      style.textContent = `
-    @keyframes subtlePulse {
-        0% {
-            box-shadow: 0 0 5px var(--theme-accent), 0 4px 12px rgba(0,0,0,0.15);
-            transform: scale(1);
-        }
-        50% {
-            box-shadow: 0 0 18px var(--theme-accent), 0 6px 16px rgba(0,0,0,0.2);
-            transform: scale(1.02);
-        }
-        100% {
-            box-shadow: 0 0 5px var(--theme-accent), 0 4px 12px rgba(0,0,0,0.15);
-            transform: scale(1);
-        }
+  // Simple manual theme button injection
+  window.initThemeButton = function (containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) {
+      console.error("Container not found:", containerId);
+      return;
     }
-    .theme-opt:hover {
-        background: var(--theme-border);
-    }
-    #rise-theme-trigger:hover {
-        animation: none;
-        transform: scale(1.05);
-        box-shadow: 0 0 22px var(--theme-accent), 0 6px 16px rgba(0,0,0,0.2);
-    }
-`;
-      document.head.appendChild(style);
 
-      document.body.insertAdjacentHTML("beforeend", html);
+    container.innerHTML = "";
 
-      const trigger = document.getElementById("rise-theme-trigger");
-      const panel = document.getElementById("rise-theme-panel");
+    // Create button
+    const btn = document.createElement("div");
+    btn.style.cssText =
+      "width: 48px; height: 48px; background: var(--theme-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 0 12px var(--theme-accent), 0 4px 12px rgba(0,0,0,0.15); transition: all 0.3s ease;";
+    btn.innerHTML =
+      '<img src="./logos/paint.svg" alt="Theme" style="width: 24px; height: 24px; filter: brightness(0) invert(1);">';
 
-      trigger.onclick = (e) => {
+    // Create panel
+    const panel = document.createElement("div");
+    panel.style.cssText =
+      "position: absolute; bottom: 55px; right: 0; background: var(--theme-card-bg); border-radius: 12px; padding: 8px; min-width: 160px; box-shadow: 0 8px 24px rgba(0,0,0,0.2); border: 1px solid var(--theme-border); display: none; flex-direction: column; gap: 4px; z-index: 99999;";
+
+    // Add theme options
+    Object.entries(themes).forEach(([key, t]) => {
+      const opt = document.createElement("div");
+      opt.style.cssText =
+        "padding: 8px 12px; border-radius: 8px; cursor: pointer; color: var(--theme-text-primary); display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 13px;";
+      opt.innerHTML = `<span>${t.name}</span> ${currentTheme === key ? "<span>✓</span>" : ""}`;
+      opt.onclick = (e) => {
         e.stopPropagation();
-        panel.style.display = panel.style.display === "flex" ? "none" : "flex";
+        window.applyTheme(key);
+        panel.style.display = "none";
+        // Update checkmarks
+        panel.querySelectorAll("div").forEach((optDiv) => {
+          const check = optDiv.querySelector("span:last-child");
+          if (check && check.innerText === "✓") check.innerText = "";
+        });
+        const checkSpan = opt.querySelector("span:last-child");
+        if (checkSpan) checkSpan.innerText = "✓";
+        else opt.insertAdjacentHTML("beforeend", "<span>✓</span>");
+
+        // Send to iframes
+        document.querySelectorAll("iframe").forEach((iframe) => {
+          try {
+            iframe.contentWindow.postMessage(
+              { type: "changeTheme", theme: key },
+              "*",
+            );
+          } catch (e) {}
+        });
       };
+      panel.appendChild(opt);
+    });
 
-      document.onclick = (e) => {
-        if (!panel.contains(e.target) && !trigger.contains(e.target)) {
-          panel.style.display = "none";
-        }
-      };
+    // Wrapper
+    const wrapper = document.createElement("div");
+    wrapper.style.position = "relative";
+    wrapper.style.display = "inline-block";
+    wrapper.appendChild(btn);
+    wrapper.appendChild(panel);
 
-      document.querySelectorAll(".theme-opt").forEach((opt) => {
-        opt.onclick = () => {
-          const theme = opt.dataset.theme;
-          window.applyTheme(theme);
-          panel.style.display = "none";
+    container.appendChild(wrapper);
 
-          // Also send to all iframes
-          document.querySelectorAll("iframe").forEach((iframe) => {
-            try {
-              iframe.contentWindow.postMessage(
-                {
-                  type: "changeTheme",
-                  theme: theme,
-                },
-                "*",
-              );
-            } catch (e) {
-              console.log("Cannot send to iframe");
-            }
-          });
-        };
-      });
-    }
+    // Toggle panel on click
+    btn.onclick = (e) => {
+      e.stopPropagation();
+      panel.style.display = panel.style.display === "flex" ? "none" : "flex";
+    };
 
-    if (document.body) injectFloatingButton();
-    else document.addEventListener("DOMContentLoaded", injectFloatingButton);
-  }
+    // Close panel when clicking outside
+    document.addEventListener("click", function (e) {
+      if (!wrapper.contains(e.target)) {
+        panel.style.display = "none";
+      }
+    });
+
+    console.log("Theme button initialized!");
+  };
 })();
